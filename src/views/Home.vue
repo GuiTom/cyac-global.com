@@ -327,7 +327,7 @@ export default {
         title: '梦想的色彩',
         author: '张小明',
         category: '6-8岁',
-        image: '/images/placeholder-work-1.svg',
+        image: './images/placeholder-work-1.svg',
         description: '这幅作品表达了孩子对未来的美好憧憬'
       },
       {
@@ -335,7 +335,7 @@ export default {
         title: '城市印象',
         author: '李小红',
         category: '9-12岁',
-        image: '/images/placeholder-work-2.svg',
+        image: './images/placeholder-work-2.svg',
         description: '通过独特的视角展现现代城市的魅力'
       },
       {
@@ -343,7 +343,7 @@ export default {
         title: '自然之美',
         author: '王小华',
         category: '13-15岁',
-        image: '/images/placeholder-work-3.svg',
+        image: './images/placeholder-work-3.svg',
         description: '细腻的笔触描绘了大自然的壮美景色'
       },
       {
@@ -351,7 +351,7 @@ export default {
         title: '抽象思维',
         author: '赵小刚',
         category: '16-18岁',
-        image: '/images/placeholder-work-4.svg',
+        image: './images/placeholder-work-4.svg',
         description: '运用抽象手法表达内心的情感世界'
       }
     ])
@@ -364,7 +364,7 @@ export default {
         excerpt: '全球青少年艺术大赛2024年度比赛正式开始报名，欢迎各地青少年踊跃参与。',
         category: '比赛信息',
         date: '2024-01-15',
-        image: '/images/placeholder-news-1.svg'
+        image: './images/placeholder-news-1.svg'
       },
       {
         id: 2,
@@ -372,7 +372,7 @@ export default {
         excerpt: '为促进国际青少年艺术交流，我们将举办大型艺术作品展览活动。',
         category: '展览信息',
         date: '2024-01-10',
-        image: '/images/placeholder-news-2.svg'
+        image: './images/placeholder-news-2.svg'
       },
       {
         id: 3,
@@ -380,7 +380,7 @@ export default {
         excerpt: '面向获奖选手开放的国际艺术游学项目现已开始接受申请。',
         category: '游学信息',
         date: '2024-01-05',
-        image: '/images/placeholder-news-3.svg'
+        image: './images/placeholder-news-3.svg'
       }
     ])
 
@@ -543,7 +543,7 @@ export default {
 
 /* 轮播图样式 */
 .carousel-section {
-  height: 100vh;
+  height: 50vh;
   position: relative;
   margin-top: 80px;
 }
