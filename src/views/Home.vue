@@ -8,22 +8,22 @@
         </div>
         <ul class="nav-menu" :class="{ active: isMenuOpen }">
           <li class="nav-item">
-            <a href="#home" class="nav-link" @click="closeMenu">首页</a>
+            <a href="#home" class="nav-link" @click="handleNavClick">首页</a>
           </li>
           <li class="nav-item">
-            <a href="#about" class="nav-link" @click="closeMenu">比赛介绍</a>
+            <a href="#about" class="nav-link" @click="handleNavClick">比赛介绍</a>
           </li>
           <li class="nav-item">
-            <a href="#query" class="nav-link" @click="closeMenu">获奖查询</a>
+            <a href="#query" class="nav-link" @click="handleNavClick">获奖查询</a>
           </li>
           <li class="nav-item">
-            <a href="#gallery" class="nav-link" @click="closeMenu">优秀作品</a>
+            <a href="#gallery" class="nav-link" @click="handleNavClick">优秀作品</a>
           </li>
           <li class="nav-item">
-            <a href="#news" class="nav-link" @click="closeMenu">动态发布</a>
+            <a href="#news" class="nav-link" @click="handleNavClick">动态发布</a>
           </li>
           <li class="nav-item">
-            <a href="#contact" class="nav-link" @click="closeMenu">联系我们</a>
+            <a href="#contact" class="nav-link" @click="handleNavClick">联系我们</a>
           </li>
         </ul>
         <div class="hamburger" :class="{ active: isMenuOpen }" @click="toggleMenu">
@@ -106,6 +106,25 @@
               按姓名查询
             </button>
           </div>
+          <div class="query-filter">
+            <span class="filter-label">查询类型：</span>
+            <div class="filter-buttons">
+              <button 
+                class="filter-button" 
+                :class="{ active: awardFilter === 'finalist' }"
+                @click="awardFilter = 'finalist'"
+              >
+                入围
+              </button>
+              <button 
+                class="filter-button" 
+                :class="{ active: awardFilter === 'winner' }"
+                @click="awardFilter = 'winner'"
+              >
+                获奖
+              </button>
+            </div>
+          </div>
           <div class="query-input">
             <input 
               v-if="queryType === 'number'"
@@ -127,6 +146,7 @@
             <h3>查询结果</h3>
             <div class="result-card">
               <p><strong>获奖者：</strong>{{ queryResult.name }}</p>
+              <p><strong>状态：</strong>{{ queryResult.status }}</p>
               <p><strong>奖项：</strong>{{ queryResult.award }}</p>
               <p><strong>编号：</strong>{{ queryResult.number }}</p>
               <p><strong>年份：</strong>{{ queryResult.year }}</p>
@@ -290,6 +310,7 @@ export default {
     const queryNumber = ref('')
     const queryName = ref('')
     const queryResult = ref(null)
+    const awardFilter = ref('winner') // 默认选择获奖
     const activeCategory = ref('全部')
     const showBackToTop = ref(false)
     const modalWork = ref(null)
@@ -401,19 +422,35 @@ export default {
       isMenuOpen.value = false
     }
 
+    const handleNavClick = (event) => {
+      const targetId = event.currentTarget.getAttribute('href')
+      const targetElement = document.querySelector(targetId)
+      if (targetElement) {
+        event.preventDefault()
+        targetElement.scrollIntoView({ behavior: 'smooth' })
+        closeMenu()
+      }
+    }
+
     const searchAward = () => {
       // 模拟查询结果
       if (queryType.value === 'number' && queryNumber.value) {
+        const status = awardFilter.value === 'winner' ? '获奖' : '入围'
+        const award = awardFilter.value === 'winner' ? '金奖' : '入围奖'
         queryResult.value = {
           name: '张三',
-          award: '金奖',
+          status: status,
+          award: award,
           number: queryNumber.value,
           year: '2023'
         }
       } else if (queryType.value === 'name' && queryName.value) {
+        const status = awardFilter.value === 'winner' ? '获奖' : '入围'
+        const award = awardFilter.value === 'winner' ? '银奖' : '入围奖'
         queryResult.value = {
           name: queryName.value,
-          award: '银奖',
+          status: status,
+          award: award,
           number: 'CYAC2023001',
           year: '2023'
         }
@@ -461,6 +498,7 @@ export default {
       queryNumber,
       queryName,
       queryResult,
+      awardFilter,
       activeCategory,
       showBackToTop,
       modalWork,
@@ -473,6 +511,7 @@ export default {
       filteredWorks,
       toggleMenu,
       closeMenu,
+      handleNavClick,
       searchAward,
       filterGallery,
       openModal,
@@ -488,6 +527,7 @@ export default {
 .navbar {
   background-color: #404040;
   padding: 1rem 0;
+  height: 70px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -524,7 +564,7 @@ export default {
 }
 
 .nav-link:hover {
-  color: #2d5a27;
+  color: #2f424e;
 }
 
 .hamburger {
@@ -543,9 +583,9 @@ export default {
 
 /* 轮播图样式 */
 .carousel-section {
-  height: 50vh;
+  height: 80vw;
   position: relative;
-  margin-top: 80px;
+  margin-top: 70px;
 }
 
 .swiper-container {
@@ -554,7 +594,7 @@ export default {
 }
 
 .swiper-slide {
-  background: linear-gradient(135deg, #2d5a27 0%, #1a3d1a 100%);
+  background-color: #2f424e;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -591,7 +631,7 @@ export default {
 }
 
 :deep(.swiper-pagination-bullet-active) {
-  background: #2d5a27;
+  background: #2f424e;
   transform: scale(1.2);
 }
 
@@ -625,7 +665,7 @@ export default {
 .cta-button {
   display: inline-block;
   padding: 12px 30px;
-  background-color: #2d5a27;
+  background-color: #2f424e;
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -649,7 +689,7 @@ export default {
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 3rem;
-  color: #fff;
+  color: black;
   font-weight: bold;
 }
 
@@ -684,7 +724,7 @@ export default {
 }
 
 .about-card h3 {
-  color: #2d5a27;
+  color: #2f424e;
   margin-bottom: 1rem;
   font-size: 1.3rem;
 }
@@ -697,7 +737,7 @@ export default {
 /* 查询系统样式 */
 .query-section {
   padding: 5rem 0;
-  background-color: #1a1a1a;
+  background-color: white;
 }
 
 .query-form {
@@ -726,8 +766,50 @@ export default {
 }
 
 .tab-button.active {
-  background: #2d5a27;
+  background: #2f424e;
   color: white;
+}
+
+.query-filter {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.filter-label {
+  color: #ccc;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-button {
+  padding: 0.8rem 1.5rem;
+  background: #404040;
+  color: #ccc;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.filter-button.active {
+  background: #2f424e;
+  color: white;
+}
+
+.filter-button:hover {
+  background: #555;
+}
+
+.filter-button.active:hover {
+  background: #1a3d1a;
 }
 
 .query-input {
@@ -752,7 +834,7 @@ export default {
 
 .search-button {
   padding: 1rem 2rem;
-  background: #2d5a27;
+  background: #2f424e;
   color: white;
   border: none;
   border-radius: 5px;
@@ -770,7 +852,7 @@ export default {
 }
 
 .query-result h3 {
-  color: #2d5a27;
+  color: #2f424e;
   margin-bottom: 1rem;
 }
 
@@ -778,7 +860,7 @@ export default {
   background: #333;
   padding: 1.5rem;
   border-radius: 5px;
-  border-left: 4px solid #2d5a27;
+  border-left: 4px solid #2f424e;
 }
 
 .result-card p {
@@ -793,7 +875,7 @@ export default {
 /* 作品展示样式 */
 .gallery-section {
   padding: 5rem 0;
-  background-color: #1a1a1a;
+  background-color: white;
 }
 
 .gallery-filters {
@@ -816,7 +898,7 @@ export default {
 
 .filter-button.active,
 .filter-button:hover {
-  background: #2d5a27;
+  background: #2f424e;
   color: white;
 }
 
@@ -873,7 +955,7 @@ export default {
 /* 新闻动态样式 */
 .news-section {
   padding: 5rem 0;
-  background-color: #1a1a1a;
+  background-color: white;
 }
 
 .news-grid {
@@ -905,7 +987,7 @@ export default {
 
 .news-category {
   display: inline-block;
-  background: #2d5a27;
+  background: #2f424e;
   color: white;
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
@@ -937,7 +1019,7 @@ export default {
 }
 
 .read-more {
-  color: #2d5a27;
+  color: #2f424e;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
@@ -950,7 +1032,15 @@ export default {
 /* 联系我们样式 */
 .contact-section {
   padding: 5rem 0;
-  background-color: #404040;
+  background-color: #171717;
+}
+.contact-section .section-title {
+  color: white;
+}
+.contact-info h3{
+  color: white;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
 }
 
 .contact-grid {
@@ -959,9 +1049,9 @@ export default {
   gap: 3rem;
 }
 
-.contact-info h3,
+
 .contact-qr h3 {
-  color: #2d5a27;
+  color: white;
   margin-bottom: 2rem;
   font-size: 1.5rem;
 }
@@ -996,7 +1086,7 @@ export default {
 
 /* 页脚样式 */
 .footer {
-  background-color: #404040;
+  background-color: #171717;
   padding: 3rem 0 1rem;
   border-top: 1px solid #555;
 }
@@ -1010,7 +1100,7 @@ export default {
 
 .footer-section h3,
 .footer-section h4 {
-  color: #2d5a27;
+  color: white;
   margin-bottom: 1rem;
 }
 
@@ -1031,7 +1121,7 @@ export default {
 }
 
 .footer-section a:hover {
-  color: #2d5a27;
+  color: #2f424e;
 }
 
 .footer-bottom {
@@ -1048,7 +1138,7 @@ export default {
   right: 2rem;
   width: 50px;
   height: 50px;
-  background: #2d5a27;
+  background: #2f424e;
   color: white;
   border: none;
   border-radius: 50%;
@@ -1111,7 +1201,7 @@ export default {
 }
 
 .modal-info h3 {
-  color: #2d5a27;
+  color: #2f424e;
   margin-bottom: 1rem;
 }
 
@@ -1125,7 +1215,7 @@ export default {
   .nav-menu {
     position: fixed;
     left: -100%;
-    top: 80px;
+    top: 70px;
     flex-direction: column;
     background-color: #404040;
     width: 100%;
@@ -1165,6 +1255,7 @@ export default {
 
   .section-title {
     font-size: 2rem;
+    color:black;
   }
 
   .container {
@@ -1221,6 +1312,7 @@ export default {
 
   .section-title {
     font-size: 1.8rem;
+    color: black;
   }
 
   .about-grid {
@@ -1236,6 +1328,12 @@ export default {
     right: 1rem;
     width: 45px;
     height: 45px;
+  }
+}
+
+@media (min-width: 769px) {
+  .carousel-section {
+    height: 576px;
   }
 }
 </style>
