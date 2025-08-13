@@ -89,69 +89,10 @@
     <section id="query" class="query-section">
       <div class="container">
         <h2 class="section-title">获奖查询</h2>
-        <div class="query-form">
-          <div class="query-tabs">
-            <button 
-              class="tab-button" 
-              :class="{ active: queryType === 'number' }"
-              @click="queryType = 'number'"
-            >
-              按奖项编号查询
-            </button>
-            <button 
-              class="tab-button" 
-              :class="{ active: queryType === 'name' }"
-              @click="queryType = 'name'"
-            >
-              按姓名查询
-            </button>
-          </div>
-          <div class="query-filter">
-            <span class="filter-label">查询类型：</span>
-            <div class="filter-buttons">
-              <button 
-                class="filter-button" 
-                :class="{ active: awardFilter === 'finalist' }"
-                @click="awardFilter = 'finalist'"
-              >
-                入围
-              </button>
-              <button 
-                class="filter-button" 
-                :class="{ active: awardFilter === 'winner' }"
-                @click="awardFilter = 'winner'"
-              >
-                获奖
-              </button>
-            </div>
-          </div>
-          <div class="query-input">
-            <input 
-              v-if="queryType === 'number'"
-              v-model="queryNumber"
-              type="text" 
-              placeholder="请输入奖项编号"
-              class="input-field"
-            >
-            <input 
-              v-if="queryType === 'name'"
-              v-model="queryName"
-              type="text" 
-              placeholder="请输入获奖者姓名"
-              class="input-field"
-            >
-            <button @click="searchAward" class="search-button">查询</button>
-          </div>
-          <div v-if="queryResult" class="query-result">
-            <h3>查询结果</h3>
-            <div class="result-card">
-              <p><strong>获奖者：</strong>{{ queryResult.name }}</p>
-              <p><strong>状态：</strong>{{ queryResult.status }}</p>
-              <p><strong>奖项：</strong>{{ queryResult.award }}</p>
-              <p><strong>编号：</strong>{{ queryResult.number }}</p>
-              <p><strong>年份：</strong>{{ queryResult.year }}</p>
-            </div>
-          </div>
+        <div class="query-intro">
+          <p class="query-description">输入奖项编号或获奖者姓名查询获奖信息</p>
+          <p class="query-note">支持按编号查询和按姓名查询，可查看获奖证书和相关信息</p>
+          <router-link to="/query" class="query-button">进入查询页面</router-link>
         </div>
       </div>
     </section>
@@ -306,11 +247,6 @@ export default {
   setup() {
     // 响应式数据
     const isMenuOpen = ref(false)
-    const queryType = ref('number')
-    const queryNumber = ref('')
-    const queryName = ref('')
-    const queryResult = ref(null)
-    const awardFilter = ref('winner') // 默认选择获奖
     const activeCategory = ref('全部')
     const showBackToTop = ref(false)
     const modalWork = ref(null)
@@ -432,30 +368,7 @@ export default {
       }
     }
 
-    const searchAward = () => {
-      // 模拟查询结果
-      if (queryType.value === 'number' && queryNumber.value) {
-        const status = awardFilter.value === 'winner' ? '获奖' : '入围'
-        const award = awardFilter.value === 'winner' ? '金奖' : '入围奖'
-        queryResult.value = {
-          name: '张三',
-          status: status,
-          award: award,
-          number: queryNumber.value,
-          year: '2023'
-        }
-      } else if (queryType.value === 'name' && queryName.value) {
-        const status = awardFilter.value === 'winner' ? '获奖' : '入围'
-        const award = awardFilter.value === 'winner' ? '银奖' : '入围奖'
-        queryResult.value = {
-          name: queryName.value,
-          status: status,
-          award: award,
-          number: 'CYAC2023001',
-          year: '2023'
-        }
-      }
-    }
+
 
     const filterGallery = (category) => {
       activeCategory.value = category
@@ -494,11 +407,6 @@ export default {
 
     return {
       isMenuOpen,
-      queryType,
-      queryNumber,
-      queryName,
-      queryResult,
-      awardFilter,
       activeCategory,
       showBackToTop,
       modalWork,
@@ -512,7 +420,6 @@ export default {
       toggleMenu,
       closeMenu,
       handleNavClick,
-      searchAward,
       filterGallery,
       openModal,
       closeModal,
@@ -736,180 +643,51 @@ export default {
 
 /* 获奖查询样式 - 性冷淡风格 */
 .query-section {
-  padding: 8rem 0;
+  padding: 4rem 0;
   background: #fafafa;
   position: relative;
 }
 
-.query-form {
-  background: #ffffff;
-  padding: 4rem;
-  border-radius: 2px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  border: 1px solid #f0f0f0;
-  max-width: 800px;
+.query-intro {
+  text-align: center;
+  max-width: 600px;
   margin: 0 auto;
 }
 
-.query-tabs {
-  display: flex;
-  margin-bottom: 3rem;
-  border-bottom: 1px solid #e8e8e8;
+.query-description {
+  font-size: 1.2rem;
+  color: #333333;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.3px;
 }
 
-.tab-button {
-  flex: 1;
-  padding: 1.5rem 0;
-  background: transparent;
-  color: #999999;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: 400;
+.query-note {
   font-size: 0.95rem;
-  letter-spacing: 0.5px;
-  border-bottom: 2px solid transparent;
-}
-
-.tab-button.active {
-  color: #333333;
-  border-bottom-color: #333333;
-}
-
-.tab-button:hover {
   color: #666666;
-}
-
-.query-filter {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
   margin-bottom: 3rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.filter-label {
-  font-weight: 400;
-  color: #666666;
-  font-size: 0.9rem;
-  letter-spacing: 0.3px;
-}
-
-.filter-buttons {
-  display: flex;
-  gap: 1rem;
-}
-
-.filter-button {
-  padding: 0.8rem 1.5rem;
-  background: #ffffff;
-  color: #999999;
-  border: 1px solid #e8e8e8;
-  border-radius: 0;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: 400;
-  font-size: 0.85rem;
-  letter-spacing: 0.3px;
-}
-
-.filter-button.active {
-  background: #333333;
-  color: #ffffff;
-  border-color: #333333;
-}
-
-.filter-button:hover {
-  background: #f8f8f8;
-  color: #666666;
-}
-
-.query-input {
-  display: flex;
-  gap: 0;
-  align-items: stretch;
-  margin-bottom: 3rem;
-}
-
-.input-field {
-  flex: 1;
-  padding: 1.2rem 1.5rem;
-  border: 1px solid #e8e8e8;
-  border-right: none;
-  border-radius: 0;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
-  background: #ffffff;
-  color: #333333;
   font-weight: 300;
+  letter-spacing: 0.2px;
+  line-height: 1.6;
 }
 
-.input-field:focus {
-  outline: none;
-  border-color: #cccccc;
-  background: #fafafa;
-}
-
-.input-field::placeholder {
-  color: #cccccc;
-  font-weight: 300;
-}
-
-.search-button {
-  padding: 1.2rem 2.5rem;
+.query-button {
+  display: inline-block;
+  padding: 1.2rem 3rem;
   background: #333333;
   color: white;
-  border: 1px solid #333333;
-  border-radius: 0;
-  cursor: pointer;
+  text-decoration: none;
   font-weight: 400;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   transition: all 0.2s ease;
   letter-spacing: 0.5px;
-  min-width: 100px;
+  border: 1px solid #333333;
 }
 
-.search-button:hover {
+.query-button:hover {
   background: #555555;
   border-color: #555555;
-}
-
-.query-result {
-  margin-top: 3rem;
-  padding: 2.5rem 0;
-  border-top: 1px solid #f0f0f0;
-}
-
-.query-result h3 {
-  color: #333333;
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
-  font-weight: 400;
-  letter-spacing: 0.3px;
-}
-
-.result-card {
-  background: #fafafa;
-  padding: 2rem;
-  border: none;
-  border-radius: 0;
-}
-
-.result-card p {
-  margin-bottom: 1rem;
-  color: #666666;
-  line-height: 1.8;
-  font-size: 0.9rem;
-  font-weight: 300;
-}
-
-.result-card strong {
-  color: #333333;
-  font-weight: 400;
-  margin-right: 1rem;
-  display: inline-block;
-  min-width: 80px;
+  color: white;
 }
 
 /* 作品展示样式 - 性冷淡风格 */

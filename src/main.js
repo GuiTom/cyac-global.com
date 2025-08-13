@@ -3,10 +3,12 @@ import { createPinia } from 'pinia'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import App from './App.vue'
 import Home from './views/Home.vue'
+import Query from './views/Query.vue'
 
 // 创建路由
 const routes = [
-  { path: '/', name: 'Home', component: Home }
+  { path: '/', name: 'Home', component: Home },
+  { path: '/query', name: 'Query', component: Query }
 ]
 
 const router = createRouter({
