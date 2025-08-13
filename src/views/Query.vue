@@ -80,11 +80,28 @@
             <h3>查询结果</h3>
             <div class="result-card">
               <div class="result-info">
-                <p><strong>获奖者：</strong>{{ queryResult.name }}</p>
-                <p><strong>状态：</strong>{{ queryResult.status }}</p>
-                <p><strong>奖项：</strong>{{ queryResult.award }}</p>
-                <p><strong>编号：</strong>{{ queryResult.number }}</p>
-                <p><strong>年份：</strong>{{ queryResult.year }}</p>
+                <table class="result-table">
+                  <tr>
+                    <td class="label">获奖者：</td>
+                    <td class="value">{{ queryResult.name }}</td>
+                  </tr>
+                  <tr>
+                    <td class="label">状态：</td>
+                    <td class="value">{{ queryResult.status }}</td>
+                  </tr>
+                  <tr>
+                    <td class="label">奖项：</td>
+                    <td class="value">{{ queryResult.award }}</td>
+                  </tr>
+                  <tr>
+                    <td class="label">编号：</td>
+                    <td class="value">{{ queryResult.number }}</td>
+                  </tr>
+                  <tr>
+                    <td class="label">年份：</td>
+                    <td class="value">{{ queryResult.year }}</td>
+                  </tr>
+                </table>
               </div>
               <div class="certificate-section">
                 <div class="certificate-preview">
@@ -413,25 +430,42 @@ export default {
 
 .result-info {
   flex: 1;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1em;
+  padding: 8px 1em;
 }
 
-.result-card p {
-  margin-bottom: 1rem;
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.result-table tr {
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.result-table tr:last-child {
+  border-bottom: none;
+}
+
+.result-table td {
+  padding: 0.8rem 0;
+  vertical-align: top;
+}
+
+.result-table .label {
+ 
+  color: #333333;
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0.2px;
+}
+
+.result-table .value {
   color: #666666;
   font-size: 0.9rem;
   font-weight: 300;
   letter-spacing: 0.2px;
+  padding-left: 1rem;
 }
-
-.result-card strong {
-  color: #333333;
-  font-weight: 400;
-}
-
 .certificate-section {
   display: flex;
   flex-direction: column;

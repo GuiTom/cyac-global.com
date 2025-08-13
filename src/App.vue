@@ -21,7 +21,8 @@ body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
   color: #333;
-  background-color: #1a1a1a;
+  background-color: #ffffff;
+  overflow-x: hidden;
 }
 
 #app {
