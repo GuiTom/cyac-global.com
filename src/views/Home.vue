@@ -734,299 +734,399 @@ export default {
   line-height: 1.6;
 }
 
-/* 查询系统样式 */
+/* 获奖查询样式 - 性冷淡风格 */
 .query-section {
-  padding: 5rem 0;
-  background-color: white;
+  padding: 8rem 0;
+  background: #fafafa;
+  position: relative;
 }
 
 .query-form {
-  max-width: 600px;
+  background: #ffffff;
+  padding: 4rem;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid #f0f0f0;
+  max-width: 800px;
   margin: 0 auto;
-  background: #2a2a2a;
-  padding: 2rem;
-  border-radius: 10px;
 }
 
 .query-tabs {
   display: flex;
-  margin-bottom: 2rem;
-  border-radius: 5px;
-  overflow: hidden;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .tab-button {
   flex: 1;
-  padding: 1rem;
-  background: #404040;
-  color: #ccc;
+  padding: 1.5rem 0;
+  background: transparent;
+  color: #999999;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid transparent;
 }
 
 .tab-button.active {
-  background: #2f424e;
-  color: white;
+  color: #333333;
+  border-bottom-color: #333333;
+}
+
+.tab-button:hover {
+  color: #666666;
 }
 
 .query-filter {
   display: flex;
   align-items: center;
-  margin-bottom: 2rem;
-  gap: 1rem;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .filter-label {
-  color: #ccc;
-  font-weight: bold;
-  white-space: nowrap;
+  font-weight: 400;
+  color: #666666;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
 }
 
 .filter-buttons {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .filter-button {
   padding: 0.8rem 1.5rem;
-  background: #404040;
-  color: #ccc;
-  border: none;
-  border-radius: 25px;
+  background: #ffffff;
+  color: #999999;
+  border: 1px solid #e8e8e8;
+  border-radius: 0;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
 }
 
 .filter-button.active {
-  background: #2f424e;
-  color: white;
+  background: #333333;
+  color: #ffffff;
+  border-color: #333333;
 }
 
 .filter-button:hover {
-  background: #555;
-}
-
-.filter-button.active:hover {
-  background: #1a3d1a;
+  background: #f8f8f8;
+  color: #666666;
 }
 
 .query-input {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 0;
+  align-items: stretch;
+  margin-bottom: 3rem;
 }
 
 .input-field {
   flex: 1;
-  padding: 1rem;
-  border: 1px solid #555;
-  border-radius: 5px;
-  background: #333;
-  color: white;
-  font-size: 1rem;
+  padding: 1.2rem 1.5rem;
+  border: 1px solid #e8e8e8;
+  border-right: none;
+  border-radius: 0;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  background: #ffffff;
+  color: #333333;
+  font-weight: 300;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #cccccc;
+  background: #fafafa;
 }
 
 .input-field::placeholder {
-  color: #999;
+  color: #cccccc;
+  font-weight: 300;
 }
 
 .search-button {
-  padding: 1rem 2rem;
-  background: #2f424e;
+  padding: 1.2rem 2.5rem;
+  background: #333333;
   color: white;
-  border: none;
-  border-radius: 5px;
+  border: 1px solid #333333;
+  border-radius: 0;
   cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s ease;
+  font-weight: 400;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+  min-width: 100px;
 }
 
 .search-button:hover {
-  background: #1a3d1a;
+  background: #555555;
+  border-color: #555555;
 }
 
 .query-result {
-  margin-top: 2rem;
+  margin-top: 3rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid #f0f0f0;
 }
 
 .query-result h3 {
-  color: #2f424e;
-  margin-bottom: 1rem;
+  color: #333333;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.3px;
 }
 
 .result-card {
-  background: #333;
-  padding: 1.5rem;
-  border-radius: 5px;
-  border-left: 4px solid #2f424e;
+  background: #fafafa;
+  padding: 2rem;
+  border: none;
+  border-radius: 0;
 }
 
 .result-card p {
-  color: #ccc;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  color: #666666;
+  line-height: 1.8;
+  font-size: 0.9rem;
+  font-weight: 300;
 }
 
 .result-card strong {
-  color: white;
+  color: #333333;
+  font-weight: 400;
+  margin-right: 1rem;
+  display: inline-block;
+  min-width: 80px;
 }
 
-/* 作品展示样式 */
+/* 作品展示样式 - 性冷淡风格 */
 .gallery-section {
-  padding: 5rem 0;
-  background-color: white;
+  padding: 8rem 0;
+  background: #ffffff;
+  position: relative;
 }
 
 .gallery-filters {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
+  gap: 0;
+  margin-bottom: 5rem;
+  border-bottom: 1px solid #f0f0f0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.filter-button {
-  padding: 0.8rem 1.5rem;
-  background: #404040;
-  color: #ccc;
+.gallery-filters .filter-button {
+  padding: 1.2rem 2rem;
+  background: transparent;
+  color: #999999;
   border: none;
-  border-radius: 25px;
+  border-bottom: 2px solid transparent;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  border-radius: 0;
 }
 
-.filter-button.active,
-.filter-button:hover {
-  background: #2f424e;
-  color: white;
+.gallery-filters .filter-button.active {
+  color: #333333;
+  border-bottom-color: #333333;
+  background: transparent;
+}
+
+.gallery-filters .filter-button:hover {
+  color: #666666;
+  background: transparent;
 }
 
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 1px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .gallery-item {
   position: relative;
-  border-radius: 10px;
-  overflow: hidden;
+  background: #fafafa;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: all 0.2s ease;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 0;
 }
 
 .gallery-item:hover {
-  transform: scale(1.05);
+  background: #f0f0f0;
+  transform: none;
 }
 
 .gallery-item img {
   width: 100%;
-  height: 250px;
+  height: 100%;
   object-fit: cover;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.gallery-item:hover img {
+  opacity: 0.6;
 }
 
 .gallery-overlay {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-  color: white;
-  padding: 2rem 1rem 1rem;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333333;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  transform: none;
 }
 
 .gallery-item:hover .gallery-overlay {
-  transform: translateY(0);
+  opacity: 1;
 }
 
 .gallery-overlay h3 {
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.3px;
 }
 
 .gallery-overlay p {
-  opacity: 0.8;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  color: #666666;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  opacity: 1;
 }
 
-/* 新闻动态样式 */
+/* 新闻动态样式 - 性冷淡风格 */
 .news-section {
-  padding: 5rem 0;
-  background-color: white;
+  padding: 8rem 0;
+  background: #ffffff;
 }
 
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .news-card {
-  background: #2a2a2a;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .news-card:hover {
-  transform: translateY(-5px);
+  background: #f5f5f5;
 }
 
 .news-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.news-card:hover img {
+  opacity: 0.6;
 }
 
 .news-content {
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 .news-category {
   display: inline-block;
-  background: #2f424e;
-  color: white;
-  padding: 0.3rem 0.8rem;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  margin-bottom: 1rem;
+  background: transparent;
+  color: #666666;
+  padding: 0.5rem 0;
+  font-size: 0.75rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .news-card h3 {
-  color: white;
+  color: #333333;
   margin-bottom: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  line-height: 1.4;
 }
 
 .news-card p {
-  color: #ccc;
+  color: #666666;
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.2px;
 }
 
 .news-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid #f0f0f0;
 }
 
 .news-date {
-  color: #999;
-  font-size: 0.9rem;
+  color: #999999;
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.2px;
 }
 
 .read-more {
-  color: #2f424e;
+  color: #333333;
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
 }
 
 .read-more:hover {
-  color: #1a3d1a;
+  color: #666666;
 }
 
 /* 联系我们样式 */
