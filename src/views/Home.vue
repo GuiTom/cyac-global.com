@@ -117,7 +117,7 @@
             v-for="work in filteredWorks" 
             :key="work.id"
             class="gallery-item"
-            @click="openModal(work)"
+            @click="goToGallery"
           >
             <img :src="work.image" :alt="work.title" loading="lazy">
             <div class="gallery-overlay">
@@ -232,6 +232,7 @@
 
 <script>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { useRouter } from 'vue-router'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/css'
@@ -245,6 +246,9 @@ export default {
     SwiperSlide
   },
   setup() {
+    // 路由
+    const router = useRouter()
+    
     // 响应式数据
     const isMenuOpen = ref(false)
     const activeCategory = ref('全部')
@@ -392,6 +396,10 @@ export default {
     const handleScroll = () => {
       showBackToTop.value = window.pageYOffset > 300
     }
+    
+    const goToGallery = () => {
+      router.push('/gallery')
+    }
 
     // 生命周期
     onMounted(() => {
@@ -423,7 +431,8 @@ export default {
       filterGallery,
       openModal,
       closeModal,
-      scrollToTop
+      scrollToTop,
+      goToGallery
     }
   }
 }

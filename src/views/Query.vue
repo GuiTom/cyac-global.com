@@ -81,26 +81,28 @@
             <div class="result-card">
               <div class="result-info">
                 <table class="result-table">
-                  <tr>
-                    <td class="label">获奖者：</td>
-                    <td class="value">{{ queryResult.name }}</td>
-                  </tr>
-                  <tr>
-                    <td class="label">状态：</td>
-                    <td class="value">{{ queryResult.status }}</td>
-                  </tr>
-                  <tr>
-                    <td class="label">奖项：</td>
-                    <td class="value">{{ queryResult.award }}</td>
-                  </tr>
-                  <tr>
-                    <td class="label">编号：</td>
-                    <td class="value">{{ queryResult.number }}</td>
-                  </tr>
-                  <tr>
-                    <td class="label">年份：</td>
-                    <td class="value">{{ queryResult.year }}</td>
-                  </tr>
+                  <tbody>
+                    <tr>
+                      <td class="label">获奖者：</td>
+                      <td class="value">{{ queryResult.name }}</td>
+                    </tr>
+                    <tr>
+                      <td class="label">状态：</td>
+                      <td class="value">{{ queryResult.status }}</td>
+                    </tr>
+                    <tr>
+                      <td class="label">奖项：</td>
+                      <td class="value">{{ queryResult.award }}</td>
+                    </tr>
+                    <tr>
+                      <td class="label">编号：</td>
+                      <td class="value">{{ queryResult.number }}</td>
+                    </tr>
+                    <tr>
+                      <td class="label">年份：</td>
+                      <td class="value">{{ queryResult.year }}</td>
+                    </tr>
+                  </tbody>
                 </table>
               </div>
               <div class="certificate-section">
