@@ -430,7 +430,6 @@ export default {
 
 .result-info {
   flex: 1;
-  padding: 8px 1em;
 }
 
 .result-table {
@@ -452,7 +451,7 @@ export default {
 }
 
 .result-table .label {
- 
+  width: 80px;
   color: #333333;
   font-weight: 400;
   font-size: 0.9rem;
