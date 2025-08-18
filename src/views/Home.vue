@@ -77,9 +77,25 @@
           </div>
           <div class="about-card">
             <h3>主办方学校介绍</h3>
-            <p>CSVPA 是 （Cambridge School of Visual & Performing Arts）的缩写。</p>
-            <p>英国顶级艺术院校，位于英国剑桥市，隶属于剑桥教育集团（Cambridge Education Group）。</p>
+            <p class="school-name">CSVPA 是 （Cambridge School of Visual & Performing Arts）的缩写。</p>
             
+            <div class="school-section">
+              <h4>学校概况</h4>
+              <p>英国顶级艺术院校，位于英国剑桥市，隶属于剑桥教育集团（Cambridge Education Group）。</p>
+            </div>
+            
+            <div class="school-section">
+              <h4>升学表现</h4>
+              <ul class="achievement-list">
+                <li>艺术设计预科生升入伦敦艺术大学（UAL）的比例超过65%</li>
+                <li>其他顶尖去向包括皇家艺术学院、格拉斯哥艺术学院、帕森斯设计学院等</li>
+              </ul>
+            </div>
+            
+            <div class="school-section">
+              <h4>行业合作</h4>
+              <p>与伦艺、皇家戏剧学院（RADA）、赫斯特集团（旗下《ELLE》《Harper's Bazaar》等）深度合作，提供奖学金及实习机会。</p>
+            </div>
           </div>
           <div class="about-card">
             <h3>教授团队</h3>
@@ -652,6 +668,48 @@ export default {
 .about-card p {
   color: #666;
   line-height: 1.6;
+}
+
+.school-name {
+  font-style: italic;
+  color: #2f424e;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.school-section {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.school-section h4 {
+  color: #2f424e;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 0.3rem;
+}
+
+.achievement-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.achievement-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.achievement-list li:before {
+  content: "•";
+  color: #2f424e;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
 }
 
 /* 获奖查询样式 - 性冷淡风格 */
