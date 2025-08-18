@@ -70,12 +70,16 @@
         <h2 class="section-title">比赛介绍</h2>
         <div class="about-grid">
           <div class="about-card">
-            <h3>起源历史</h3>
-            <p>CYAC全球青少年艺术大赛始于2018年，致力于为全球青少年艺术家提供展示才华的平台。</p>
+            <h3>展览介绍</h3>
+            <p>艺术是全球通用的语言！在人类社会漫长的历史进程中，因为有艺术的介入，人类才拥有万紫千红的美好生活，才能拥抱流光溢彩的大千世界。</p>
+            <p>本次“剑桥青少年艺术大赛”，旨在激发青少年创作的热情。本次展览将先后在国内的美术馆和英国剑桥校区举办。</p>
+            <p>借此，中英双方可以友好交流，相互启发，共同追求艺术创作之路！</p>
           </div>
           <div class="about-card">
-            <h3>主办方介绍</h3>
-            <p>由国际知名艺术学院联合主办，汇聚全球顶尖艺术教育资源。</p>
+            <h3>主办方学校介绍</h3>
+            <p>CSVPA 是 （Cambridge School of Visual & Performing Arts）的缩写。</p>
+            <p>英国顶级艺术院校，位于英国剑桥市，隶属于剑桥教育集团（Cambridge Education Group）。</p>
+            
           </div>
           <div class="about-card">
             <h3>教授团队</h3>
@@ -142,7 +146,7 @@
               <p>{{ news.excerpt }}</p>
               <div class="news-meta">
                 <span class="news-date">{{ news.date }}</span>
-                <a href="#" class="read-more">阅读更多</a>
+                <router-link :to="`/article/${news.id}`" class="read-more">阅读更多</router-link>
               </div>
             </div>
           </article>
@@ -510,7 +514,7 @@ export default {
 }
 
 .swiper-slide {
-  background-color: #2f424e;
+  background-color: #416879;
   display: flex;
   align-items: center;
   justify-content: center;

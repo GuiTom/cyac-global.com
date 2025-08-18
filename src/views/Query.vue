@@ -107,7 +107,7 @@
               </div>
               <div class="certificate-section">
                 <div class="certificate-preview">
-                  <img src="/certificates/1.jpg" alt="获奖证书" class="certificate-thumbnail" />
+                  <img :src="certificateImg" alt="获奖证书" class="certificate-thumbnail" />
                   <p class="certificate-label">获奖证书</p>
                 </div>
                 <button @click="downloadCertificate" class="download-button">
@@ -146,6 +146,10 @@
 <script>
 import { ref } from 'vue'
 
+// 导入证书资源
+import certificateImg from '/certificates/1.jpg'
+import certificatePdf from '/certificates/1.pdf'
+
 export default {
   name: 'Query',
   setup() {
@@ -183,7 +187,7 @@ export default {
     // 下载证书功能
     const downloadCertificate = () => {
       const link = document.createElement('a')
-      link.href = '/certificates/1.pdf'
+      link.href = certificatePdf
       link.download = `CYAC_Certificate_${queryResult.value.number}.pdf`
       document.body.appendChild(link)
       link.click()
@@ -197,7 +201,8 @@ export default {
       queryResult,
       awardFilter,
       searchAward,
-      downloadCertificate
+      downloadCertificate,
+      certificateImg
     }
   }
 }

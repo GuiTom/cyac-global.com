@@ -68,6 +68,14 @@
 <script>
 import { ref, onMounted, computed } from 'vue'
 
+// 导入图片资源
+import work1 from '/works/1.jpg'
+import work2 from '/works/2.jpg'
+import work3 from '/works/3.jpg'
+import work4 from '/works/4.jpg'
+import work5 from '/works/5.jpg'
+import work6 from '/works/6.jpg'
+
 export default {
   name: 'Gallery',
   setup() {
@@ -82,7 +90,7 @@ export default {
         title: '梦想的色彩',
         author: '张小明',
         category: '6-8岁',
-        image: '/works/1.jpg',
+        image: work1,
         description: '这幅作品表达了孩子对未来的美好憧憬，用鲜艳的色彩描绘出心中的梦想世界。'
       },
       {
@@ -90,7 +98,7 @@ export default {
         title: '城市印象',
         author: '李小红',
         category: '9-12岁',
-        image: '/works/2.jpg',
+        image: work2,
         description: '通过独特的视角展现现代城市的魅力，线条流畅，构图新颖。'
       },
       {
@@ -98,7 +106,7 @@ export default {
         title: '自然之美',
         author: '王小华',
         category: '13-15岁',
-        image: '/works/3.jpg',
+        image: work3,
         description: '细腻的笔触描绘了大自然的壮美景色，展现了作者对自然的深刻理解。'
       },
       {
@@ -106,7 +114,7 @@ export default {
         title: '抽象思维',
         author: '赵小刚',
         category: '16-18岁',
-        image: '/works/4.jpg',
+        image: work4,
         description: '运用抽象手法表达内心的情感世界，色彩搭配独特，富有创意。'
       },
       {
@@ -114,7 +122,7 @@ export default {
         title: '青春记忆',
         author: '陈小美',
         category: '13-15岁',
-        image: '/works/5.jpg',
+        image: work5,
         description: '记录青春年华的美好时光，画面温馨感人，技法娴熟。'
       },
       {
@@ -122,7 +130,7 @@ export default {
         title: '未来世界',
         author: '刘小强',
         category: '16-18岁',
-        image: '/works/6.jpg',
+        image: work6,
         description: '想象中的未来世界，充满科技感和创新思维，展现了年轻人的无限想象力。'
       }
     ])
@@ -289,46 +297,179 @@ export default {
 }
 
 .gallery-3d-item:hover {
-  transform: scale(1.1) !important;
+  /* 移除缩放效果，只保留画框的外发光 */
 }
 
 .work-frame {
   width: 100%;
   height: 100%;
   background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border: 7.5px solid #8B4513;
+  border-radius: 5px;
+  box-shadow: 
+    0 0 0 3px #D2691E,
+    0 0 0 6px #8B4513,
+    0 15px 30px rgba(0,0,0,0.4),
+    inset 0 0 0 2px #F5DEB3;
   overflow: hidden;
   transition: all 0.3s ease;
+  position: relative;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      #8B4513 0px,
+      #A0522D 2px,
+      #CD853F 4px,
+      #D2B48C 6px,
+      #DEB887 8px,
+      #F5DEB3 10px,
+      #DEB887 12px,
+      #D2B48C 14px,
+      #CD853F 16px,
+      #A0522D 18px,
+      #8B4513 20px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(139,69,19,0.1) 0px,
+      rgba(160,82,45,0.1) 1px,
+      rgba(205,133,63,0.1) 2px,
+      rgba(222,184,135,0.1) 3px,
+      transparent 4px,
+      transparent 8px
+    ),
+    radial-gradient(
+      ellipse 200% 100% at 50% 0%,
+      rgba(139,69,19,0.3) 0%,
+      rgba(160,82,45,0.2) 20%,
+      transparent 40%,
+      rgba(205,133,63,0.1) 60%,
+      transparent 80%,
+      rgba(139,69,19,0.2) 100%
+    ),
+    repeating-conic-gradient(
+      from 0deg at 50% 50%,
+      rgba(139,69,19,0.05) 0deg,
+      rgba(160,82,45,0.05) 15deg,
+      rgba(205,133,63,0.05) 30deg,
+      rgba(222,184,135,0.05) 45deg,
+      rgba(139,69,19,0.05) 60deg
+    );
+}
+
+.work-frame::before {
+  content: '';
+  position: absolute;
+  top: -7.5px;
+  left: -7.5px;
+  right: -7.5px;
+  bottom: -7.5px;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      #654321 0px,
+      #8B4513 3px,
+      #A0522D 6px,
+      #CD853F 9px,
+      #D2B48C 12px,
+      #DEB887 15px,
+      #F5DEB3 18px,
+      #DEB887 21px,
+      #D2B48C 24px,
+      #CD853F 27px,
+      #A0522D 30px,
+      #8B4513 33px,
+      #654321 36px
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(139,69,19,0.2) 0%,
+      rgba(160,82,45,0.1) 50%,
+      transparent 100%
+    );
+  z-index: -1;
+  border-radius: 5px;
+}
+
+.work-frame::after {
+  content: '';
+  position: absolute;
+  top: 2.5px;
+  left: 2.5px;
+  right: 2.5px;
+  bottom: 2.5px;
+  border: 2px solid rgba(139,69,19,0.3);
+  border-radius: 3px;
+  pointer-events: none;
+  background: 
+    repeating-conic-gradient(
+      from 0deg at 50% 50%,
+      rgba(139,69,19,0.05) 0deg,
+      rgba(160,82,45,0.05) 30deg,
+      rgba(205,133,63,0.05) 60deg,
+      rgba(222,184,135,0.05) 90deg,
+      rgba(139,69,19,0.05) 120deg,
+      rgba(160,82,45,0.05) 150deg,
+      rgba(205,133,63,0.05) 180deg,
+      rgba(222,184,135,0.05) 210deg,
+      rgba(139,69,19,0.05) 240deg,
+      rgba(160,82,45,0.05) 270deg,
+      rgba(205,133,63,0.05) 300deg,
+      rgba(222,184,135,0.05) 330deg,
+      rgba(139,69,19,0.05) 360deg
+    ),
+    linear-gradient(
+      135deg,
+      rgba(245,222,179,0.3) 0%,
+      transparent 25%,
+      rgba(139,69,19,0.1) 50%,
+      transparent 75%,
+      rgba(245,222,179,0.2) 100%
+    );
 }
 
 .work-frame:hover {
-  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  box-shadow: 
+    0 0 0 3px #F5DEB3,
+    0 0 0 6px #8B4513,
+    0 0 20px rgba(139,69,19,0.6),
+    0 0 40px rgba(245,222,179,0.4),
+    0 20px 40px rgba(0,0,0,0.5),
+    inset 0 0 0 2px #F5DEB3,
+    inset 0 0 20px rgba(245,222,179,0.4);
 }
 
 .work-frame img {
-  width: 100%;
-  height: 70%;
+  width: calc(100% - 10px);
+  height: calc(70% - 5px);
   object-fit: cover;
+  margin: 5px 5px 0 5px;
+  border: 2px solid #F5DEB3;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
 }
 
 .work-info {
-  padding: 1rem;
+  padding: 0.8rem;
   text-align: center;
-  background: #ffffff;
+  background: linear-gradient(to bottom, #F5F5DC 0%, #F0E68C 100%);
+  border-top: 1px solid #D2691E;
+  margin: 0 5px 5px 5px;
+  border-radius: 0 0 3px 3px;
 }
 
 .work-info h3 {
   font-size: 1rem;
-  color: #333;
+  color: #8B4513;
   margin-bottom: 0.5rem;
   font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
 }
 
 .work-info p {
   font-size: 0.9rem;
-  color: #666;
-  font-weight: 400;
+  color: #A0522D;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
 }
 
 /* 控制按钮 */
