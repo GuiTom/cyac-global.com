@@ -352,31 +352,31 @@ export default {
       {
         title: 'CYAC Global Youth Art Competition',
         description: '激发创意，展现才华，连接世界',
-        image: '/top_coursels/1.jpg',
+        image: './top_coursels/1.jpg',
         link: '#about'
       },
       {
         title: '全球青少年艺术盛典',
         description: '汇聚世界各地的青少年艺术家',
-        image: '/top_coursels/2.jpg',
+        image: './top_coursels/2.jpg',
         link: '#gallery'
       },
       {
         title: '专业评审，权威认证',
         description: '国际知名艺术教授专业评审',
-        image: '/top_coursels/3.jpg',
+        image: './top_coursels/3.jpg',
         link: '#query'
       },
       {
         title: '艺术创作之旅',
         description: '开启你的艺术创作之旅',
-        image: '/top_coursels/4.jpg',
+        image: './top_coursels/4.jpg',
         link: '#about'
       },
       {
         title: '国际艺术交流',
         description: '与世界各地的艺术家交流学习',
-        image: '/top_coursels/5.jpg',
+        image: './top_coursels/5.jpg',
         link: '#gallery'
       }
     ])
