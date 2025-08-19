@@ -53,6 +53,7 @@
       >
         <swiper-slide v-for="(slide, index) in carouselSlides" :key="index">
           <div class="slide-content">
+            <img :src="slide.image" :alt="slide.title" class="slide-image" />
             <div class="slide-overlay"></div>
             <div class="slide-text">
               <h1>{{ slide.title }}</h1>
@@ -71,7 +72,7 @@
         <div class="about-grid">
           <div class="about-card">
             <h3>展览介绍</h3>
-            <p>艺术是全球通用的语言！在人类社会漫长的历史进程中，因为有艺术的介入，人类才拥有万紫千红的美好生活，才能拥抱流光溢彩的大千世界。</p>
+            <p>艺术是全球通用的语言！在人类社会长长的历史进程中，因为有艺术的介入，人类才拥有万紫千红的美好生活，才能拥抱流光溢彩的大千世界。</p>
             <p>本次“剑桥青少年艺术大赛”，旨在激发青少年创作的热情。本次展览将先后在国内的美术馆和英国剑桥校区举办。</p>
             <p>借此，中英双方可以友好交流，相互启发，共同追求艺术创作之路！</p>
           </div>
@@ -99,7 +100,74 @@
           </div>
           <div class="about-card">
             <h3>教授团队</h3>
-            <p>评审团由来自世界各地的知名艺术教授和专业人士组成。</p>
+            
+            <!-- 国内评委 -->
+            <div class="professors-section">
+              <h4 class="judges-title">国内评委</h4>
+              <div class="professors-info">
+                <div class="professor-item">
+                  <img src="/src/assets/proferssor/1.jpg" alt="梁卫洲教授" class="professor-image" />
+                  <h4>梁卫洲</h4>
+                  <p class="professor-title">当代著名大家、摄影家</p>
+                  <p class="professor-desc">华东师范大学美术教授，暨于上海美术学院。受邀去德国、美国、瑞典、新加坡等国办展。</p>
+                </div>
+                <div class="professor-item">
+                  <img src="/src/assets/proferssor/2.jpg" alt="孙燕平教授" class="professor-image" />
+                  <h4>孙燕平</h4>
+                  <p class="professor-title">当代知名书法家</p>
+                  <p class="professor-desc">上海"九三学社书画"画师师范区书协理事，上海虹口美术教师。受邀作品《中国版画》入选水墨画展三年展。</p>
+                </div>
+                <div class="professor-item">
+                  <img src="/src/assets/proferssor/3.jpg" alt="倪士华教授" class="professor-image" />
+                  <h4>倪士华</h4>
+                  <p class="professor-title">现任宁夏美术家协会副主席</p>
+                  <p class="professor-desc">银川市画院院长，国家一级美术师，清华大学美术学院高研班导师。作品被多个机构收藏，从事艺术教育二十years。</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 国外评委 -->
+            <div class="professors-section">
+              <h4 class="judges-title">国外评委</h4>
+              <div class="professors-info">
+                <div class="professor-item">
+                  <img src="/src/assets/proferssor/foreign/1.jpg" alt="Edward Dimsdale教授" class="professor-image" />
+                  <h4>Edward Dimsdale</h4>
+                  <p class="professor-title">摄影家、作家</p>
+                  <p class="professor-desc">本科毕业于布里斯托大学社会科学专业，硕士毕业于剑桥艺术学院版画专业。Edward 是位摄影家，作家。自1998年以来，他一直代表HackelBury Fine Art(伦敦)，广泛展出他的摄影作品。</p>
+                </div>
+                <div class="professor-item">
+                  <img src="/src/assets/proferssor/foreign/2.jpg" alt="Holly Fulton教授" class="professor-image" />
+                  <h4>Holly Fulton</h4>
+                  <p class="professor-title">时尚品牌霍莉 - 富尔顿创始人</p>
+                  <p class="professor-desc">英国著名时尚品牌霍莉 - 富尔顿创始人；本科毕业于爱丁堡艺术学院 - 时尚设计专业，硕士毕业于皇家艺术学院 - 时尚女装设计专业。她曾在品牌Lanvin担任设计师，拥有多年的时尚行业经验。</p>
+                </div>
+                <div class="professor-item">
+                  <img src="/src/assets/proferssor/foreign/3.jpg" alt="Kevin Hart教授" class="professor-image" />
+                  <h4>Kevin Hart</h4>
+                  <p class="professor-title">美术家</p>
+                  <p class="professor-desc">Kevin是位美术家，有二十多年从事高等教育的经验。他在来CSVPA工作之前，原先是中央圣马丁学院(CSM)传媒设计硕士专业的老师。曾在伦敦、剑桥的画廊、博物馆和教堂多次举办过个人画展。</p>
+                </div>
+                <div class="professor-item">
+                  <img src="/src/assets/proferssor/foreign/4.jpg" alt="Carolyn Timson教授" class="professor-image" />
+                  <h4>Carolyn Timson</h4>
+                  <p class="professor-title">时尚与设计专业教授</p>
+                  <p class="professor-desc">本科毕业于金斯顿大学时尚与设计专业，硕士毕业于威斯敏斯特大学。Carolyn曾担任汤米希尔费格(Tommy Hilfiger)的设计部副总裁，并在该品牌内部担任Hilfiger Collection系列、T台系列、女士运动系列的高级设计总监。</p>
+                </div>
+                <div class="professor-item">
+                  <img src="/src/assets/proferssor/foreign/5.jpg" alt="Neil Ayling教授" class="professor-image" />
+                  <h4>Neil Ayling</h4>
+                  <p class="professor-title">艺术家</p>
+                  <p class="professor-desc">Neil在2009年被授予Stanley Picker Trust年度奖。他的作品曾在诸多重要展览中展出，这包括：慕尼黑尼克松艺术博物馆2011，尼克松艺术博物馆基金会2010，匹克美术馆2010，皇家艺术学院夏季展览2008，蒂姆普里查德美术馆2009，美国银行集团展2009，牛津艺术园项目2006。</p>
+                </div>
+                <div class="professor-item">
+                  <img src="/src/assets/proferssor/foreign/6.jpg" alt="Karin Askham校长" class="professor-image" />
+                  <h4>Karin Askham</h4>
+                  <p class="professor-title">CSVPA 校长</p>
+                  <p class="professor-desc">本科毕业于威斯敏斯特大学影科学专业，硕士毕业于皇家艺术学院人文与摄影哲学专业。Karin 在为 CSVPA 工作前就职于伦敦艺术大学。在伦敦艺术大学她的主要职位包括伦敦时装学院研究生院副校长，以及伦敦传播学院传媒学院校长。专业摄影师出身的 Karin，在摄影方面的实践使其作品展示在国内外优质的艺术院校中。她同时还从事摄影委员会工作及教会公共项目。Karin 的摄影作品被用作一些专辑的封面及众多出版刊物上，包括：Attitude、iD、The Face、NME 以及 Tank magazine。</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -284,17 +352,32 @@ export default {
       {
         title: 'CYAC Global Youth Art Competition',
         description: '激发创意，展现才华，连接世界',
+        image: '/top_coursels/1.jpg',
         link: '#about'
       },
       {
         title: '全球青少年艺术盛典',
         description: '汇聚世界各地的青少年艺术家',
+        image: '/top_coursels/2.jpg',
         link: '#gallery'
       },
       {
         title: '专业评审，权威认证',
         description: '国际知名艺术教授专业评审',
+        image: '/top_coursels/3.jpg',
         link: '#query'
+      },
+      {
+        title: '艺术创作之旅',
+        description: '开启你的艺术创作之旅',
+        image: '/top_coursels/4.jpg',
+        link: '#about'
+      },
+      {
+        title: '国际艺术交流',
+        description: '与世界各地的艺术家交流学习',
+        image: '/top_coursels/5.jpg',
+        link: '#gallery'
       }
     ])
 
@@ -530,11 +613,11 @@ export default {
 }
 
 .swiper-slide {
-  background-color: #416879;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 }
 
 /* Swiper导航按钮样式 */
@@ -572,9 +655,29 @@ export default {
 }
 
 .slide-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.slide-text {
+  position: relative;
   text-align: center;
   color: white;
-  z-index: 2;
+  z-index: 3;
 }
 
 .slide-overlay {
@@ -583,19 +686,22 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
 }
 
 .slide-text h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
   font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .slide-text p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  opacity: 0.9;
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .cta-button {
@@ -615,12 +721,6 @@ export default {
 }
 
 /* 通用容器和标题样式 */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
 .section-title {
   font-size: 2.5rem;
   text-align: center;
@@ -647,7 +747,7 @@ export default {
 
 .about-card {
   background: #f8f9fa;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 10px;
   text-align: center;
   transition: all 0.3s ease;
@@ -662,12 +762,14 @@ export default {
 .about-card h3 {
   color: #2f424e;
   margin-bottom: 1rem;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
 }
 
 .about-card p {
   color: #666;
   line-height: 1.6;
+  text-align: start;
+  margin-bottom: 1rem;
 }
 
 .school-name {
@@ -710,6 +812,96 @@ export default {
   font-weight: bold;
   position: absolute;
   left: 0;
+}
+
+/* 教授团队样式 */
+.professors-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.judges-title {
+  color: #2f424e;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e9ecef;
+  text-align: center;
+}
+
+.team-photo {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(47, 66, 78, 0.1);
+}
+
+.professors-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.professor-item {
+  padding: 1.2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #2f424e;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.professor-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(47, 66, 78, 0.1);
+}
+
+.professor-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid #2f424e;
+}
+
+.professor-item h4 {
+  color: #2f424e;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.professor-title {
+  color: #666;
+  font-style: italic;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+.professor-desc {
+  color: #555;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .professors-section {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .professors-image {
+    flex: 1;
+    max-width: 400px;
+  }
+  
+  .professors-info {
+    flex: 1;
+  }
 }
 
 /* 获奖查询样式 - 性冷淡风格 */
@@ -766,6 +958,7 @@ export default {
   padding: 8rem 0;
   background: #ffffff;
   position: relative;
+  overflow: auto;
 }
 
 .gallery-filters {
@@ -806,7 +999,7 @@ export default {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1px;
   max-width: 1000px;
   margin: 0 auto;
@@ -885,7 +1078,7 @@ export default {
 
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1px;
   max-width: 1200px;
   margin: 0 auto;
@@ -1167,11 +1360,13 @@ export default {
     top: 70px;
     flex-direction: column;
     background-color: #404040;
-    width: 100%;
+    width: 100vw;
     text-align: center;
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
     padding: 2rem 0;
+    margin: 0;
+    box-sizing: border-box;
   }
 
   .nav-menu.active {
@@ -1180,6 +1375,22 @@ export default {
 
   .hamburger {
     display: flex;
+  }
+
+  .nav-container {
+    padding: 0 1rem;
+  }
+
+  .professors-info {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .news-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 
   .hamburger.active .bar:nth-child(2) {
@@ -1205,10 +1416,6 @@ export default {
   .section-title {
     font-size: 2rem;
     color:black;
-  }
-
-  .container {
-    padding: 0 1rem;
   }
 
   .query-input {
