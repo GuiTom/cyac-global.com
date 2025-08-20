@@ -7,11 +7,13 @@ import Query from './views/Query.vue'
 import Gallery from './views/Gallery.vue'
 import Article from './views/Article.vue'
 
+
 // 创建路由
 const routes = [
   { path: '/', name: 'Home', component: Home },
   { path: '/query', name: 'Query', component: Query },
   { path: '/gallery', name: 'Gallery', component: Gallery },
+
   { path: '/article/:id', name: 'Article', component: Article }
 ]
 
