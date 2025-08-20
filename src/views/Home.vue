@@ -238,7 +238,7 @@
               <p>{{ news.excerpt }}</p>
               <div class="news-meta">
                 <span class="news-date">{{ news.date }}</span>
-                <router-link :to="`/article/${news.id}`" class="read-more">阅读更多</router-link>
+                <a :href="news.url" target="_blank" class="read-more">阅读更多</a>
               </div>
             </div>
           </article>
@@ -390,7 +390,7 @@ export default {
     ])
 
     // 作品分类
-    const categories = ref(['全部', '6-8岁', '9-12岁', '13-15岁', '16-18岁'])
+    const categories = ref(['全部', '少儿组', '少年组', '青年组'])
 
     // 作品数据
     const galleryWorks = ref([
@@ -398,33 +398,49 @@ export default {
         id: 1,
         title: '梦想的色彩',
         author: '张小明',
-        category: '6-8岁',
-        image: './images/placeholder-work-1.svg',
+        category: '少儿组',
+        image: './works/children/1.jpg',
         description: '这幅作品表达了孩子对未来的美好憧憬'
       },
       {
         id: 2,
         title: '城市印象',
         author: '李小红',
-        category: '9-12岁',
-        image: './images/placeholder-work-2.svg',
+        category: '少儿组',
+        image: './works/children/2.jpg',
         description: '通过独特的视角展现现代城市的魅力'
       },
       {
         id: 3,
         title: '自然之美',
         author: '王小华',
-        category: '13-15岁',
-        image: './images/placeholder-work-3.svg',
+        category: '少年组',
+        image: './works/youth/1.jpg',
         description: '细腻的笔触描绘了大自然的壮美景色'
       },
       {
         id: 4,
         title: '抽象思维',
         author: '赵小刚',
-        category: '16-18岁',
-        image: './images/placeholder-work-4.svg',
+        category: '少年组',
+        image: './works/youth/2.jpg',
         description: '运用抽象手法表达内心的情感世界'
+      },
+      {
+        id: 5,
+        title: '青春记忆',
+        author: '陈小美',
+        category: '青年组',
+        image: './works/adult/1.jpg',
+        description: '记录青春年华的美好时光，画面温馨感人'
+      },
+      {
+        id: 6,
+        title: '未来世界',
+        author: '刘小强',
+        category: '青年组',
+        image: './works/adult/2.jpg',
+        description: '想象中的未来世界，充满科技感和创新思维'
       }
     ])
 
@@ -440,11 +456,12 @@ export default {
       },
       {
         id: 2,
-        title: '国际艺术交流展览即将举办',
-        excerpt: '为促进国际青少年艺术交流，我们将举办大型艺术作品展览活动。',
+        title: '王小慧展览，圆满闭幕',
+        excerpt: '为促进国际青少年艺术交流，王小慧举办了大型艺术作品展览活动。',
         category: '展览信息',
         date: '2024-01-10',
-        image: './images/placeholder-news-2.svg'
+        image: './images/placeholder-news-2.svg',
+        url:'https://mp.weixin.qq.com/s/9OaX_DLwBJCAXbX7yEOgyg'
       },
       {
         id: 3,
@@ -591,7 +608,7 @@ export default {
 }
 
 .nav-link:hover {
-  color: #2f424e;
+  color: #ffffff;
 }
 
 .hamburger {

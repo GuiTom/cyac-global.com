@@ -69,12 +69,12 @@
 import { ref, onMounted, computed } from 'vue'
 
 // 导入图片资源
-import work1 from '/works/1.jpg'
-import work2 from '/works/2.jpg'
-import work3 from '/works/3.jpg'
-import work4 from '/works/4.jpg'
-import work5 from '/works/5.jpg'
-import work6 from '/works/6.jpg'
+import work1 from '/works/children/1.jpg'
+import work2 from '/works/children/2.jpg'
+import work3 from '/works/youth/1.jpg'
+import work4 from '/works/youth/2.jpg'
+import work5 from '/works/adult/1.jpg'
+import work6 from '/works/adult/2.jpg'
 
 export default {
   name: 'Gallery',
@@ -89,7 +89,7 @@ export default {
         id: 1,
         title: '梦想的色彩',
         author: '张小明',
-        category: '6-8岁',
+        category: '少儿组',
         image: work1,
         description: '这幅作品表达了孩子对未来的美好憧憬，用鲜艳的色彩描绘出心中的梦想世界。'
       },
@@ -97,7 +97,7 @@ export default {
         id: 2,
         title: '城市印象',
         author: '李小红',
-        category: '9-12岁',
+        category: '少儿组',
         image: work2,
         description: '通过独特的视角展现现代城市的魅力，线条流畅，构图新颖。'
       },
@@ -105,7 +105,7 @@ export default {
         id: 3,
         title: '自然之美',
         author: '王小华',
-        category: '13-15岁',
+        category: '少年组',
         image: work3,
         description: '细腻的笔触描绘了大自然的壮美景色，展现了作者对自然的深刻理解。'
       },
@@ -113,7 +113,7 @@ export default {
         id: 4,
         title: '抽象思维',
         author: '赵小刚',
-        category: '16-18岁',
+        category: '少年组',
         image: work4,
         description: '运用抽象手法表达内心的情感世界，色彩搭配独特，富有创意。'
       },
@@ -121,7 +121,7 @@ export default {
         id: 5,
         title: '青春记忆',
         author: '陈小美',
-        category: '13-15岁',
+        category: '青年组',
         image: work5,
         description: '记录青春年华的美好时光，画面温馨感人，技法娴熟。'
       },
@@ -129,7 +129,7 @@ export default {
         id: 6,
         title: '未来世界',
         author: '刘小强',
-        category: '16-18岁',
+        category: '青年组',
         image: work6,
         description: '想象中的未来世界，充满科技感和创新思维，展现了年轻人的无限想象力。'
       }
