@@ -109,73 +109,86 @@
     <!-- 教授团队 -->
     <section id="professors" class="professors-section">
       <div class="container">
-        <h2 class="section-title">教授团队</h2>
-        
         <!-- 国内评委 -->
-        <div class="judges-section">
-          <h3 class="judges-title">国内评委</h3>
-          <div class="professors-info">
-            <div class="professor-item">
-              <img src="/src/assets/proferssor/1.jpg" alt="梁卫洲教授" class="professor-image" />
-              <h4>梁卫洲</h4>
-              <p class="professor-title">当代著名大家、摄影家</p>
-              <p class="professor-desc">华东师范大学美术教授，暨于上海美术学院。受邀去德国、美国、瑞典、新加坡等国办展。</p>
+        <div class="faculty-section">
+          <div class="faculty-header">
+            <div class="faculty-arrow">▶</div>
+            <h2 class="faculty-title">DOMESTIC FACULTY</h2>
+          </div>
+          <div class="faculty-grid">
+            <div class="faculty-member">
+              <div class="faculty-photo">
+                <img src="/src/assets/proferssor/1.jpg" alt="梁卫洲教授" />
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">梁卫洲</h3>
+                <p class="faculty-position">当代著名大家、摄影家</p>
+              </div>
             </div>
-            <div class="professor-item">
-              <img src="/src/assets/proferssor/2.jpg" alt="孙燕平教授" class="professor-image" />
-              <h4>孙燕平</h4>
-              <p class="professor-title">当代知名书法家</p>
-              <p class="professor-desc">上海"九三学社书画"画师师范区书协理事，上海虹口美术教师。受邀作品《中国版画》入选水墨画展三年展。</p>
+            <div class="faculty-member">
+              <div class="faculty-photo">
+                <img src="/src/assets/proferssor/2.jpg" alt="孙燕平教授" />
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">孙燕平</h3>
+                <p class="faculty-position">当代知名书法家</p>
+              </div>
             </div>
-            <div class="professor-item">
-              <img src="/src/assets/proferssor/3.jpg" alt="倪士华教授" class="professor-image" />
-              <h4>倪士华</h4>
-              <p class="professor-title">现任宁夏美术家协会副主席</p>
-              <p class="professor-desc">银川市画院院长，国家一级美术师，清华大学美术学院高研班导师。作品被多个机构收藏，从事艺术教育二十years。</p>
+            <div class="faculty-member">
+              <div class="faculty-photo">
+                <img src="/src/assets/proferssor/3.jpg" alt="倪士华教授" />
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">倪士华</h3>
+                <p class="faculty-position">现任宁夏美术家协会副主席</p>
+              </div>
             </div>
           </div>
         </div>
         
         <!-- 国外评委 -->
-        <div class="judges-section">
-          <h3 class="judges-title">国外评委</h3>
-          <div class="professors-info">
-            <div class="professor-item">
-              <img src="/src/assets/proferssor/foreign/1.jpg" alt="Edward Dimsdale教授" class="professor-image" />
-              <h4>Edward Dimsdale</h4>
-              <p class="professor-title">摄影家、作家</p>
-              <p class="professor-desc">本科毕业于布里斯托大学社会科学专业，硕士毕业于剑桥艺术学院版画专业。Edward 是位摄影家，作家。自1998年以来，他一直代表HackelBury Fine Art(伦敦)，广泛展出他的摄影作品。</p>
+        <div class="faculty-section">
+          <div class="faculty-header">
+            <div class="faculty-arrow">▶</div>
+            <h2 class="faculty-title">INTERNATIONAL FACULTY</h2>
+          </div>
+          <div class="faculty-grid">
+            <div class="faculty-member">
+              <div class="faculty-photo">
+                <img src="/src/assets/proferssor/foreign/1.jpg" alt="Edward Dimsdale教授" />
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">EDWARD DIMSDALE</h3>
+                <p class="faculty-position">摄影家、作家</p>
+              </div>
             </div>
-            <div class="professor-item">
-              <img src="/src/assets/proferssor/foreign/2.jpg" alt="Holly Fulton教授" class="professor-image" />
-              <h4>Holly Fulton</h4>
-              <p class="professor-title">时尚品牌霍莉 - 富尔顿创始人</p>
-              <p class="professor-desc">英国著名时尚品牌霍莉 - 富尔顿创始人；本科毕业于爱丁堡艺术学院 - 时尚设计专业，硕士毕业于皇家艺术学院 - 时尚女装设计专业。她曾在品牌Lanvin担任设计师，拥有多年的时尚行业经验。</p>
+            <div class="faculty-member">
+              <div class="faculty-photo">
+                <img src="/src/assets/proferssor/foreign/2.jpg" alt="Holly Fulton教授" />
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">HOLLY FULTON</h3>
+                <p class="faculty-position">时尚品牌霍莉-富尔顿创始人</p>
+              </div>
             </div>
-            <div class="professor-item">
-              <img src="/src/assets/proferssor/foreign/3.jpg" alt="Kevin Hart教授" class="professor-image" />
-              <h4>Kevin Hart</h4>
-              <p class="professor-title">美术家</p>
-              <p class="professor-desc">Kevin是位美术家，有二十多年从事高等教育的经验。他在来CSVPA工作之前，原先是中央圣马丁学院(CSM)传媒设计硕士专业的老师。曾在伦敦、剑桥的画廊、博物馆和教堂多次举办过个人画展。</p>
-            </div>
-            <div class="professor-item">
-              <img src="/src/assets/proferssor/foreign/4.jpg" alt="Carolyn Timson教授" class="professor-image" />
-              <h4>Carolyn Timson</h4>
-              <p class="professor-title">时尚与设计专业教授</p>
-              <p class="professor-desc">本科毕业于金斯顿大学时尚与设计专业，硕士毕业于威斯敏斯特大学。Carolyn曾担任汤米希尔费格(Tommy Hilfiger)的设计部副总裁，并在该品牌内部担任Hilfiger Collection系列、T台系列、女士运动系列的首席设计师。</p>
-            </div>
-            <div class="professor-item">
-              <img src="/src/assets/proferssor/foreign/5.jpg" alt="Neil Ayling教授" class="professor-image" />
-              <h4>Neil Ayling</h4>
-              <p class="professor-title">艺术家</p>
-              <p class="professor-desc">Neil在2009年被授予Stanley Picker Trust年度奖。他的作品曾在诸多重要展览中展出，这包括：慕尼黑尼克松艺术博物馆2011，尼克松艺术博物馆基金会2010，匹克美术馆2010，皇家艺术学院夏季展览2008，等等。</p>
-            </div>
-            <div class="professor-item">
-              <img src="/src/assets/proferssor/foreign/6.jpg" alt="Karin Askham校长" class="professor-image" />
-              <h4>Karin Askham</h4>
-              <p class="professor-title">CSVPA 校长</p>
-              <p class="professor-desc">本科毕业于威斯敏斯特大学影科学专业，硕士毕业于皇家艺术学院人文与摄影哲学专业。Karin 在为 CSVPA 工作前就职于伦敦艺术大学。在伦敦艺术大学她的主要职位包括伦敦时装学院研究生院副校长、伦敦传媒学院媒体学院院长。她是一名专业摄影师，作品在国际上展出，参与摄影委员会和公共项目，摄影作品被用于专辑封面和出版物。</p>
-            </div>
+            <div class="faculty-member">
+               <div class="faculty-photo">
+                 <img src="/src/assets/proferssor/foreign/3.jpg" alt="Karin Askham校长" />
+               </div>
+               <div class="faculty-info">
+                 <h3 class="faculty-name">KARIN ASKHAM</h3>
+                 <p class="faculty-position">CSVPA 校长</p>
+               </div>
+             </div>
+             <div class="faculty-member">
+               <div class="faculty-photo">
+                 <img src="/src/assets/proferssor/foreign/5.jpg" alt="Neil Ayling教授" />
+               </div>
+               <div class="faculty-info">
+                 <h3 class="faculty-name">NEIL AYLING</h3>
+                 <p class="faculty-position">艺术家</p>
+               </div>
+             </div>
           </div>
         </div>
       </div>
@@ -840,76 +853,154 @@ export default {
   left: 0;
 }
 
-/* 教授团队样式 */
+/* 教授团队样式 - 简洁黑白风格 */
 .professors-section {
-  padding: 5rem 0;
-  background-color: #fff;
+  padding: 8rem 0;
+  background-color: #ffffff;
 }
 
-.judges-section {
+.faculty-section {
+  margin-bottom: 6rem;
+}
+
+.faculty-header {
+  display: flex;
+  align-items: center;
   margin-bottom: 4rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #000000;
 }
 
-.judges-title {
-  color: #2f424e;
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #e9ecef;
-  text-align: center;
+.faculty-arrow {
+  font-size: 1.2rem;
+  color: #000000;
+  margin-right: 1rem;
+  font-weight: bold;
 }
 
-.professors-info {
+.faculty-title {
+  color: #000000;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.faculty-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.professor-item {
-  padding: 2rem;
-  background: #f8f9fa;
-  border-radius: 10px;
-  border-left: 4px solid #2f424e;
-  transition: all 0.3s ease;
+.faculty-member {
   text-align: center;
+  transition: all 0.2s ease;
 }
 
-.professor-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(47, 66, 78, 0.1);
+.faculty-member:hover {
+  transform: translateY(-3px);
 }
 
-.professor-image {
-  width: 180px;
-  height: 180px;
+.faculty-photo {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.faculty-photo img {
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 1.5rem;
-  border: 4px solid #2f424e;
+  border: 2px solid #000000;
+  transition: all 0.2s ease;
 }
 
-.professor-item h4 {
-  color: #2f424e;
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+.faculty-member:hover .faculty-photo img {
+  border-color: #666666;
 }
 
-.professor-title {
-  color: #666;
-  font-style: italic;
-  margin-bottom: 1rem;
-  font-weight: 500;
+.faculty-info {
+  text-align: center;
+}
+
+.faculty-name {
+  color: #000000;
   font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-.professor-desc {
-  color: #555;
-  line-height: 1.6;
-  font-size: 1rem;
-  text-align: left;
-}
+.faculty-position {
+   color: #666666;
+   font-size: 0.9rem;
+   font-weight: 300;
+   line-height: 1.4;
+   letter-spacing: 0.3px;
+   margin: 0;
+ }
+ 
+ /* 响应式设计 */
+ @media (max-width: 768px) {
+   .faculty-grid {
+     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+     gap: 2rem;
+   }
+   
+   .faculty-photo img {
+     width: 120px;
+     height: 120px;
+   }
+   
+   .faculty-title {
+     font-size: 1.4rem;
+     letter-spacing: 1px;
+   }
+   
+   .faculty-name {
+     font-size: 1rem;
+   }
+   
+   .faculty-position {
+     font-size: 0.8rem;
+   }
+   
+   .professors-section {
+     padding: 4rem 0;
+   }
+   
+   .faculty-section {
+     margin-bottom: 4rem;
+   }
+ }
+ 
+ @media (max-width: 480px) {
+   .faculty-grid {
+     grid-template-columns: 1fr 1fr;
+     gap: 1.5rem;
+   }
+   
+   .faculty-photo img {
+     width: 100px;
+     height: 100px;
+   }
+   
+   .faculty-title {
+     font-size: 1.2rem;
+   }
+   
+   .faculty-name {
+     font-size: 0.9rem;
+   }
+   
+   .faculty-position {
+     font-size: 0.75rem;
+   }
+ }
 
 /* 获奖查询样式 - 性冷淡风格 */
 .query-section {
