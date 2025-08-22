@@ -123,6 +123,9 @@
               <div class="faculty-info">
                 <h3 class="faculty-name">梁卫洲</h3>
                 <p class="faculty-position">当代著名大家、摄影家</p>
+                <div class="faculty-bio">
+                  <p>当代著名艺术家、摄影家<br>曾任华东师范大学美术教授<br>曾于上海美术馆开个展<br>受邀去德国、奥地利、瑞典、新加坡等国办展</p>
+                </div>
               </div>
             </div>
             <div class="faculty-member">
@@ -132,6 +135,9 @@
               <div class="faculty-info">
                 <h3 class="faculty-name">孙燕平</h3>
                 <p class="faculty-position">当代知名书法家</p>
+                <div class="faculty-bio">
+                  <p>当代知名书法家<br>上海"九三学社书画院"画师静安区书协理事<br>上海华山美校教师<br>装置作品《中国板书》入选《米兰国际三年展》<br>稚拙的字体风格独树一帜</p>
+                </div>
               </div>
             </div>
             <div class="faculty-member">
@@ -141,6 +147,9 @@
               <div class="faculty-info">
                 <h3 class="faculty-name">倪士华</h3>
                 <p class="faculty-position">现任宁夏美术家协会副主席</p>
+                <div class="faculty-bio">
+                  <p>现任宁夏美术家协会副主席<br>银川书画院院长<br>国家一级美术师<br>清华大学美术学院高研班导师<br>作品被各级博物馆广为收藏<br>从事艺术教育三十余年</p>
+                </div>
               </div>
             </div>
           </div>
@@ -160,6 +169,9 @@
               <div class="faculty-info">
                 <h3 class="faculty-name">EDWARD DIMSDALE</h3>
                 <p class="faculty-position">摄影家、作家</p>
+                <div class="faculty-bio">
+                  <p>摄影家、作家<br>于1998年出版，他一直代表HackelBury Fine Art(伦敦)，广泛展出的摄影作品<br>出版摄影书籍《Still》他在艺术和摄影<br>学院工作10年，教授摄影文学学士和硕士<br>学位课程<br>还曾在巴特利特建筑学院和斯坦福德艺术学院<br>任教</p>
+                </div>
               </div>
             </div>
             <div class="faculty-member">
@@ -169,6 +181,9 @@
               <div class="faculty-info">
                 <h3 class="faculty-name">HOLLY FULTON</h3>
                 <p class="faculty-position">时尚品牌霍莉-富尔顿创始人</p>
+                <div class="faculty-bio">
+                  <p>英国女时尚品牌"霍莉-富尔顿"创始人<br>英国《每日邮报》评论：她当之无愧为10年<br>来最具影响力的设计师之一，她的设计风格<br>大胆又自信的设计风格赢得成功<br>国际知名时尚行业全球运作的道路，<br>以及她在伦敦时装周中的重要地位<br>使她在英国享有优质的声誉</p>
+                </div>
               </div>
             </div>
             <div class="faculty-member">
@@ -178,6 +193,21 @@
                <div class="faculty-info">
                  <h3 class="faculty-name">KARIN ASKHAM</h3>
                  <p class="faculty-position">CSVPA 校长</p>
+                 <div class="faculty-bio">
+                   <p>毕业于爱丁堡人文与摄影哲学专业<br>曾任伦敦艺术大学学院校长<br>以及伦敦教育学院系统学院校长<br>她的明确作品代表了Attitude、ID、<br>The Face、NME以及Tank magazine<br>等众多出版刊物</p>
+                 </div>
+               </div>
+             </div>
+             <div class="faculty-member">
+               <div class="faculty-photo">
+                 <img src="/src/assets/proferssor/foreign/4.jpg" alt="Kevin Hart教授" />
+               </div>
+               <div class="faculty-info">
+                 <h3 class="faculty-name">KEVIN HART</h3>
+                 <p class="faculty-position">美术家</p>
+                 <div class="faculty-bio">
+                   <p>曾在最中央圣马丁学院(CSM)传媒设计硕<br>士专业的教授<br>曾在伦敦、剑桥的画廊、博物馆和教堂多<br>次举办个人画展<br>其作品曾由一些知名的出版机构出版，如<br>Reed International, Mitchell Beazley和<br>Bloomsbury Books</p>
+                 </div>
                </div>
              </div>
              <div class="faculty-member">
@@ -187,6 +217,21 @@
                <div class="faculty-info">
                  <h3 class="faculty-name">NEIL AYLING</h3>
                  <p class="faculty-position">艺术家</p>
+                 <div class="faculty-bio">
+                   <p>他在2009年获得了Stanley Picker Trust<br>年度奖(Stanley Picker画廊由Stanley<br>Picker Trust资助成立于1997年，2012<br>年成为方英国艺术委员会的一部分)<br>他的作品曾在克里斯蒂尼克艺术博物馆、巴<br>克美术馆等展览，也在国家艺术学院展览</p>
+                 </div>
+               </div>
+             </div>
+             <div class="faculty-member">
+               <div class="faculty-photo">
+                 <img src="/src/assets/proferssor/foreign/6.jpg" alt="Carolyn Timson教授" />
+               </div>
+               <div class="faculty-info">
+                 <h3 class="faculty-name">CAROLYN TIMSON</h3>
+                 <p class="faculty-position">曾任汤米·希尔菲格(Tommy Hilfiger)设计总监</p>
+                 <div class="faculty-bio">
+                   <p>设计师和概念和制造设计总监<br>曾任FIVE Foxes、SPORTMAX、和<br>Moschino等大牌的设计师</p>
+                 </div>
                </div>
              </div>
           </div>
@@ -943,6 +988,20 @@ export default {
    letter-spacing: 0.3px;
    margin: 0;
  }
+
+ .faculty-bio {
+   margin-top: 12px;
+   padding-top: 12px;
+   border-top: 1px solid #e0e0e0;
+ }
+
+ .faculty-bio p {
+   margin: 0;
+   font-size: 13px;
+   line-height: 1.5;
+   color: #666;
+   text-align: left;
+ }
  
  /* 响应式设计 */
  @media (max-width: 768px) {
@@ -967,6 +1026,16 @@ export default {
    
    .faculty-position {
      font-size: 0.8rem;
+   }
+   
+   .faculty-bio {
+     margin-top: 10px;
+     padding-top: 10px;
+   }
+   
+   .faculty-bio p {
+     font-size: 12px;
+     line-height: 1.4;
    }
    
    .professors-section {
@@ -999,6 +1068,16 @@ export default {
    
    .faculty-position {
      font-size: 0.75rem;
+   }
+   
+   .faculty-bio {
+     margin-top: 8px;
+     padding-top: 8px;
+   }
+   
+   .faculty-bio p {
+     font-size: 11px;
+     line-height: 1.3;
    }
  }
 
