@@ -33,10 +33,6 @@
           >
             <div class="work-frame">
               <img :src="work.image" :alt="work.title" />
-              <div class="work-info">
-                <h3>{{ work.title }}</h3>
-                <p>{{ work.author }}</p>
-              </div>
             </div>
           </div>
         </div>
@@ -47,16 +43,10 @@
           <button @click="rotateRight" class="control-btn">›</button>
         </div>
         
-        <!-- 作品详情 -->
-        <div v-if="selectedWork" class="work-details">
-          <div class="work-detail-card">
-            <img :src="selectedWork.image" :alt="selectedWork.title" class="detail-image" />
-            <div class="detail-info">
-              <h2>{{ selectedWork.title }}</h2>
-              <p><strong>Author:</strong>{{ selectedWork.author }}</p>
-              <p><strong>Age Group:</strong>{{ selectedWork.category }}</p>
-              <p><strong>Description:</strong>{{ selectedWork.description }}</p>
-            </div>
+        <!-- 作品大图显示 -->
+        <div v-if="selectedWork" class="work-fullscreen">
+          <div class="fullscreen-overlay" @click="closeDetails">
+            <img :src="selectedWork.image" :alt="selectedWork.title" class="fullscreen-image" />
             <button @click="closeDetails" class="close-btn">×</button>
           </div>
         </div>
@@ -455,36 +445,14 @@ export default {
 
 .work-frame img {
   width: calc(100% - 10px);
-  height: calc(70% - 5px);
+  height: calc(100% - 10px);
   object-fit: cover;
-  margin: 5px 5px 0 5px;
+  margin: 5px;
   border: 2px solid #F5DEB3;
   box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
 }
 
-.work-info {
-  padding: 0.8rem;
-  text-align: center;
-  background: linear-gradient(to bottom, #F5F5DC 0%, #F0E68C 100%);
-  border-top: 1px solid #D2691E;
-  margin: 0 5px 5px 5px;
-  border-radius: 0 0 3px 3px;
-}
 
-.work-info h3 {
-  font-size: 1rem;
-  color: #8B4513;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
-}
-
-.work-info p {
-  font-size: 0.9rem;
-  color: #A0522D;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
-}
 
 /* 控制按钮 */
 .gallery-controls {
@@ -516,76 +484,54 @@ export default {
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
-/* 作品详情 */
-.work-details {
+/* 作品全屏显示 */
+.work-fullscreen {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.8);
+  z-index: 2000;
+}
+
+.fullscreen-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2000;
+  cursor: pointer;
   animation: fadeIn 0.3s ease;
 }
 
-.work-detail-card {
-  background: #ffffff;
-  border-radius: 15px;
-  max-width: 800px;
-  max-height: 90vh;
-  overflow: auto;
-  position: relative;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  display: flex;
-  animation: slideUp 0.3s ease;
-}
-
-.detail-image {
-  width: 400px;
-  height: 500px;
-  object-fit: cover;
-  border-radius: 15px 0 0 15px;
-}
-
-.detail-info {
-  padding: 2rem;
-  flex: 1;
-}
-
-.detail-info h2 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 1rem;
-  font-weight: bold;
-}
-
-.detail-info p {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 1rem;
-  line-height: 1.6;
+.fullscreen-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  cursor: default;
 }
 
 .close-btn {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 40px;
-  height: 40px;
+  top: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
   border: none;
   border-radius: 50%;
-  background: #f0f0f0;
+  background: rgba(255,255,255,0.9);
   color: #333;
   font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .close-btn:hover {
-  background: #e0e0e0;
+  background: #ffffff;
   transform: scale(1.1);
 }
 
@@ -617,21 +563,7 @@ export default {
     height: 200px;
   }
   
-  .work-detail-card {
-    flex-direction: column;
-    margin: 1rem;
-    max-width: none;
-  }
-  
-  .detail-image {
-    width: 100%;
-    height: 300px;
-    border-radius: 15px 15px 0 0;
-  }
-  
-  .detail-info {
-    padding: 1.5rem;
-  }
+
   
   .page-title {
     font-size: 2rem;
