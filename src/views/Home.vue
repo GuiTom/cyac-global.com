@@ -271,7 +271,7 @@
             v-for="work in filteredWorks" 
             :key="work.id"
             class="gallery-item"
-            @click="goToGallery"
+            @click="goToGallery(work.id)"
           >
             <img :src="work.image" :alt="work.title" loading="lazy">
             <div class="gallery-overlay">
@@ -583,8 +583,12 @@ export default {
       showBackToTop.value = window.pageYOffset > 300
     }
     
-    const goToGallery = () => {
-      router.push('/gallery')
+    const goToGallery = (workId) => {
+      if (workId) {
+        router.push({ path: '/gallery', query: { workId: workId } })
+      } else {
+        router.push('/gallery')
+      }
     }
 
     // 生命周期

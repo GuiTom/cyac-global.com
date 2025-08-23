@@ -67,6 +67,7 @@
 
 <script>
 import { ref, onMounted, computed } from 'vue'
+import { useRoute } from 'vue-router'
 
 // 导入图片资源
 import work1 from '/works/children/1.jpg'
@@ -79,6 +80,7 @@ import work6 from '/works/adult/2.jpg'
 export default {
   name: 'Gallery',
   setup() {
+    const route = useRoute()
     const currentRotation = ref(0)
     const selectedWork = ref(null)
     const gallery3d = ref(null)
@@ -174,6 +176,18 @@ export default {
     let autoRotateInterval = null
     
     onMounted(() => {
+      // 检查路由参数，如果有指定作品ID，则旋转到该作品
+      const workId = route.query.workId
+      if (workId) {
+        const workIndex = galleryWorks.value.findIndex(work => work.id === parseInt(workId))
+        if (workIndex !== -1) {
+          // 计算需要旋转的角度，使指定作品显示在前方中心
+          const totalItems = galleryWorks.value.length
+          const targetAngle = -(360 / totalItems) * workIndex
+          currentRotation.value = targetAngle
+        }
+      }
+      
       // 启动自动旋转
       autoRotateInterval = setInterval(() => {
         if (!selectedWork.value) {
