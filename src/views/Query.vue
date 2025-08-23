@@ -27,19 +27,20 @@
           <div class="query-tabs">
             <button 
               class="tab-button" 
+              :class="{ active: queryType === 'name' }"
+              @click="queryType = 'name'"
+            >
+              Query by Name
+            </button>
+            <button 
+              class="tab-button" 
               :class="{ active: queryType === 'number', disabled: awardFilter === 'shortlisted' }"
               @click="queryType = 'number'"
               :disabled="awardFilter === 'shortlisted'"
             >
               Query by Award Number
             </button>
-            <button 
-              class="tab-button" 
-              :class="{ active: queryType === 'name' }"
-              @click="queryType = 'name'"
-            >
-              Query by Name
-            </button>
+
           </div>
           <div class="query-filter">
             <span class="filter-label">Query Type:</span>
@@ -231,11 +232,12 @@ export default {
       }
       
       if (queryType.value === 'number' && queryNumber.value) {
-        // 按证书号查询
-        result = filteredDatabase.find(item => item.certificateNumber === queryNumber.value)
+        // 按证书号查询（去掉头尾空格）
+        const trimmedNumber = queryNumber.value.trim()
+        result = filteredDatabase.find(item => item.certificateNumber === trimmedNumber)
       } else if (queryType.value === 'name' && queryName.value) {
-        // 按姓名查询（支持中英文姓名）
-        const searchName = queryName.value.toLowerCase()
+        // 按姓名查询（支持中英文姓名，去掉头尾空格）
+        const searchName = queryName.value.trim().toLowerCase()
         result = filteredDatabase.find(item => 
           item.nameCh.toLowerCase().includes(searchName) || 
           item.nameEn.toLowerCase().includes(searchName)
@@ -255,7 +257,11 @@ export default {
            workName: result.workName
          }
       } else {
-        if (!queryNumber.value && !queryName.value) {
+        // 检查去掉空格后的输入是否为空
+        const trimmedNumber = queryNumber.value ? queryNumber.value.trim() : ''
+        const trimmedName = queryName.value ? queryName.value.trim() : ''
+        
+        if (!trimmedNumber && !trimmedName) {
           errorMessage.value = 'Please enter query content'
         } else {
           errorMessage.value = 'No matching records found'

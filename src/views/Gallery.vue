@@ -74,6 +74,7 @@ export default {
     const currentRotation = ref(0)
     const selectedWork = ref(null)
     const gallery3d = ref(null)
+    const isAutoRotating = ref(true) // 调试开关：控制自动旋转的启动/停止
     
     // 作品数据
     const galleryWorks = ref([
@@ -127,19 +128,23 @@ export default {
       }
     ])
     
-    // 计算每个作品的3D位置
+    // 计算每个作品的3D位置 - 这是决定作品初始位置的核心函数
     const getItemStyle = (index) => {
       const totalItems = galleryWorks.value.length
-      const angle = (360 / totalItems) * index + currentRotation.value
-      const radius = 300
+      // 计算当前作品的角度：基础角度 + 当前旋转偏移量
+      // 基础角度：360度平均分配给所有作品，每个作品间隔60度（6个作品）
+      const angle = (360 / totalItems) * index + currentRotation.value + 5
+      const radius = 300 // 3D圆形布局的半径
       
-      const x = Math.sin((angle * Math.PI) / 180) * radius
-      const z = Math.cos((angle * Math.PI) / 180) * radius
+      // 根据角度计算3D空间中的x和z坐标
+      const x = Math.sin((angle * Math.PI) / 180) * radius // 水平位置
+      const z = Math.cos((angle * Math.PI) / 180) * radius // 深度位置
       
       return {
-        transform: `translate3d(${x}px, 0, ${z}px) rotateY(${-angle}deg)`,
-        zIndex: Math.round(z)
-      }
+          // 3D变换：位移 + 旋转（+180度让作品正面朝向观察者）
+          transform: `translate3d(${x}px, 0, ${z}px) rotateY(${-angle + 180}deg)`,
+          zIndex: Math.round(z) // 根据深度设置层级，越靠前层级越高
+        }
     }
     
     // 向左旋转
@@ -167,35 +172,61 @@ export default {
     
     onMounted(() => {
       // 检查路由参数，如果有指定作品ID，则旋转到该作品
+      // 【决定初始位置的关键代码】从URL参数获取要居中显示的作品ID
       const workId = route.query.workId
       if (workId) {
+        // 根据作品ID找到对应的索引位置
         const workIndex = galleryWorks.value.findIndex(work => work.id === parseInt(workId))
         if (workIndex !== -1) {
-          // 计算需要旋转的角度，使指定作品显示在前方中心
+          // 【核心算法】计算需要旋转的角度，使指定作品显示在前方中心
+          // 原理：每个作品默认按索引顺序排列，要让某个作品居中，
+          // 需要反向旋转相应的角度，抵消其默认位置偏移
           const totalItems = galleryWorks.value.length
-          const targetAngle = -(360 / totalItems) * workIndex
-          currentRotation.value = targetAngle
+          const targetAngle = -(360 / totalItems) * workIndex // 负值表示反向旋转
+          currentRotation.value = targetAngle // 设置初始旋转角度
         }
       }
       
-      // 启动自动旋转
-      autoRotateInterval = setInterval(() => {
-        if (!selectedWork.value) {
-          currentRotation.value -= 1
-        }
-      }, 50)
+      // 启动自动旋转（受调试开关控制）
+      if (isAutoRotating.value) {
+        autoRotateInterval = setInterval(() => {
+          if (!selectedWork.value && isAutoRotating.value) {
+            currentRotation.value -= 1
+          }
+        }, 50)
+      }
     })
     
+    // 调试函数：切换自动旋转状态
+    const toggleAutoRotation = () => {
+      isAutoRotating.value = !isAutoRotating.value
+      if (isAutoRotating.value && !autoRotateInterval) {
+        // 重新启动自动旋转
+        autoRotateInterval = setInterval(() => {
+          if (!selectedWork.value && isAutoRotating.value) {
+            currentRotation.value -= 1
+          }
+        }, 50)
+      } else if (!isAutoRotating.value && autoRotateInterval) {
+        // 停止自动旋转
+        clearInterval(autoRotateInterval)
+        autoRotateInterval = null
+      }
+      console.log('自动旋转状态:', isAutoRotating.value ? '开启' : '关闭')
+    }
+
     return {
       galleryWorks,
       currentRotation,
       selectedWork,
       gallery3d,
+      isAutoRotating,
       getItemStyle,
       rotateLeft,
       rotateRight,
       selectWork,
-      closeDetails
+      closeDetails,
+      toggleAutoRotation
     }
   }
 }
