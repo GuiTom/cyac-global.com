@@ -996,8 +996,8 @@ export default {
 
  .faculty-bio p {
    margin: 0;
-   font-size: 13px;
-   line-height: 1.5;
+   font-size: 15px;
+   line-height: 1.7;
    color: #666;
    text-align: left;
  }
@@ -1033,8 +1033,8 @@ export default {
    }
    
    .faculty-bio p {
-     font-size: 12px;
-     line-height: 1.4;
+     font-size: 14px;
+     line-height: 1.6;
    }
    
    .professors-section {
@@ -1048,7 +1048,7 @@ export default {
  
  @media (max-width: 480px) {
    .faculty-grid {
-     grid-template-columns: 1fr 1fr;
+     grid-template-columns: 1fr;
      gap: 1.5rem;
    }
    
@@ -1075,8 +1075,8 @@ export default {
    }
    
    .faculty-bio p {
-     font-size: 11px;
-     line-height: 1.3;
+     font-size: 13px;
+     line-height: 1.5;
    }
  }
 

@@ -29,4 +29,6 @@
 **6.
 +适配移动端和电脑端
 +色系和设计风格要参考https://www.csvpa.com/cambridge/#campus 这个网站 冷淡风 请你调用chrome mcp来查看网站风格
+**7.
+语言一律采用英文
 
