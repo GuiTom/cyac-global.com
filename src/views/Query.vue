@@ -95,6 +95,10 @@
                       <td class="value">{{ queryResult.award }}</td>
                     </tr>
                     <tr>
+                      <td class="label">Work Name:</td>
+                      <td class="value">{{ queryResult.workName }}</td>
+                    </tr>
+                    <tr>
                       <td class="label">Number:</td>
                       <td class="value">{{ queryResult.number }}</td>
                     </tr>
@@ -160,27 +164,63 @@ export default {
     const queryResult = ref(null)
     const awardFilter = ref('winner') // 默认选择获奖
 
+    // 获奖作品数据库
+    const awardDatabase = [
+      { certificateNumber: '2024002', nameCh: '朱浩晨', nameEn: 'HaoChen Zhu', workName: 'The Train to the Megalomania', award: 'Gold Award' },
+      { certificateNumber: '2024311', nameCh: 'Olivia Chen', nameEn: 'Olivia Chen', workName: 'The Walk Through Bubbles', award: 'Silver Award' },
+      { certificateNumber: '2024315', nameCh: 'Leah Huang', nameEn: 'Leah Huang', workName: 'Forest Cabin', award: 'Silver Award' },
+      { certificateNumber: '2024316', nameCh: 'Luke Huang', nameEn: 'Luke Huang', workName: 'Sunset in Riverside', award: 'The Most Potential Award' },
+      { certificateNumber: '2024081', nameCh: 'Priscilla Xu', nameEn: 'Priscilla Xu', workName: 'The Elf Kingdom', award: 'Silver Award' },
+      { certificateNumber: '2024091', nameCh: '陈悦凡', nameEn: 'YueFan Chen', workName: 'Happy Dance', award: 'The Best Creative Award' },
+      { certificateNumber: '2024092', nameCh: 'Kanayama Haru', nameEn: 'Kanayama Haru', workName: 'Haru the Astronaut', award: 'Silver Award' },
+      { certificateNumber: '2024098', nameCh: 'HaoYu Wang', nameEn: 'HaoYu Wang', workName: 'Duble-decker Coffee Bus Loves to Travel', award: 'Gold Award' },
+      { certificateNumber: '2024100', nameCh: '姚熙晴', nameEn: 'XiQing Yao', workName: 'Happy Party on Mars', award: 'The Most Potential Award' },
+      { certificateNumber: '2024089', nameCh: '巴星月', nameEn: 'XingYue Ba', workName: 'The War of Cats and Mice', award: 'The Best Creative Award' },
+      { certificateNumber: '2024085', nameCh: '沈景楠', nameEn: 'JingNan Shen', workName: 'Good Friend', award: 'Silver Award' },
+      { certificateNumber: '2024088', nameCh: '郑雨笛', nameEn: 'YuDi Zheng', workName: 'Act Like AI and Dress Like Crazy', award: 'Gold Award' },
+      { certificateNumber: '2024040', nameCh: '顾明月', nameEn: 'MingYue Gu', workName: 'Moonshine Gem', award: 'The Best Creative Award' },
+      { certificateNumber: '2024041', nameCh: '汪子川', nameEn: 'ZiChuan Wang', workName: 'Reverse World', award: 'Gold Award' },
+      { certificateNumber: '2024042', nameCh: '郑希言', nameEn: 'XiYan Zheng', workName: 'Jumping Down', award: 'Gold Award' },
+      { certificateNumber: '2024088', nameCh: '郑雨笛', nameEn: 'YuDi Zheng', workName: 'Dreams? Distant Shore', award: 'Gold Award' },
+      { certificateNumber: '2024318', nameCh: '高子祺', nameEn: 'Kate Gao', workName: 'Fear', award: 'Gold Award' },
+      { certificateNumber: '2024043', nameCh: '杨可儿', nameEn: 'KeEr Yang', workName: 'Sunday Afternoon', award: 'Silver Award' }
+    ]
+
     // 查询功能
     const searchAward = () => {
-      // 模拟查询结果
+      let result = null
+      
       if (queryType.value === 'number' && queryNumber.value) {
-        queryResult.value = {
-          name: 'Zhang Xiaoming',
-          status: awardFilter.value === 'winner' ? 'Winner' : 'Finalist',
-          award: 'Gold Award',
-          number: queryNumber.value,
-          year: '2024'
-        }
+        // 按证书号查询
+        result = awardDatabase.find(item => item.certificateNumber === queryNumber.value)
       } else if (queryType.value === 'name' && queryName.value) {
-        queryResult.value = {
-          name: queryName.value,
-          status: awardFilter.value === 'winner' ? 'Winner' : 'Finalist',
-          award: 'Silver Award',
-          number: 'CYAC2024001',
-          year: '2024'
-        }
+        // 按姓名查询（支持中英文姓名）
+        const searchName = queryName.value.toLowerCase()
+        result = awardDatabase.find(item => 
+          item.nameCh.toLowerCase().includes(searchName) || 
+          item.nameEn.toLowerCase().includes(searchName)
+        )
+      }
+      
+      if (result) {
+         // 如果英文名和中文名相同，只显示一种名称
+         const displayName = result.nameEn === result.nameCh ? result.nameEn : `${result.nameEn} (${result.nameCh})`
+         
+         queryResult.value = {
+           name: displayName,
+           status: 'Winner',
+           award: result.award,
+           number: result.certificateNumber,
+           year: '2024',
+           workName: result.workName
+         }
       } else {
-        alert('Please enter query content')
+        if (!queryNumber.value && !queryName.value) {
+          alert('Please enter query content')
+        } else {
+          alert('No matching records found')
+          queryResult.value = null
+        }
       }
     }
 
