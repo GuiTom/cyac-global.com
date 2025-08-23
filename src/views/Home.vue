@@ -163,41 +163,29 @@
           </div>
           <div class="faculty-grid">
             <div class="faculty-member">
+               <div class="faculty-photo">
+                 <img src="/src/assets/proferssor/foreign/6.jpg" alt="Karin Askham校长" />
+               </div>
+               <div class="faculty-info">
+                 <h3 class="faculty-name">KARIN ASKHAM</h3>
+                 
+                 <div class="faculty-bio">
+                   <p>毕业于皇艺人文与摄影哲学专业<br>曾任伦艺伦敦时装学院研究生院副校长以及伦敦传播学院传媒学院校长<br>她的摄影作品被刊登于Attitude、iD.The Face、 NME 以及 Tank magazine等众多出版刊物</p>
+                 </div>
+               </div>
+             </div>
+            <div class="faculty-member">
               <div class="faculty-photo">
-                <img src="/src/assets/proferssor/foreign/1.jpg" alt="Edward Dimsdale教授" />
+                <img src="/src/assets/proferssor/foreign/5.jpg" alt="Edward Dimsdale教授" />
               </div>
               <div class="faculty-info">
                 <h3 class="faculty-name">EDWARD DIMSDALE</h3>
                 <p class="faculty-position">摄影家、作家</p>
                 <div class="faculty-bio">
-                  <p>摄影家、作家<br>于1998年出版，他一直代表HackelBury Fine Art(伦敦)，广泛展出的摄影作品<br>出版摄影书籍《Still》他在艺术和摄影<br>学院工作10年，教授摄影文学学士和硕士<br>学位课程<br>还曾在巴特利特建筑学院和斯坦福德艺术学院<br>任教</p>
+                  <p>自 1998年以来，他一直代表 HackelBuryFine Art(伦敦)广泛展出他的摄影作品<br>出版摄影刊物《Stiled》<br>他在伦艺伦敦传播学院工作 10 年，教授摄影文学学士和硕士学位课程<br>还曾在巴特利特建筑学院和斯莱德艺术学院任教</p>
                 </div>
               </div>
             </div>
-            <div class="faculty-member">
-              <div class="faculty-photo">
-                <img src="/src/assets/proferssor/foreign/2.jpg" alt="Holly Fulton教授" />
-              </div>
-              <div class="faculty-info">
-                <h3 class="faculty-name">HOLLY FULTON</h3>
-                <p class="faculty-position">时尚品牌霍莉-富尔顿创始人</p>
-                <div class="faculty-bio">
-                  <p>英国女时尚品牌"霍莉-富尔顿"创始人<br>英国《每日邮报》评论：她当之无愧为10年<br>来最具影响力的设计师之一，她的设计风格<br>大胆又自信的设计风格赢得成功<br>国际知名时尚行业全球运作的道路，<br>以及她在伦敦时装周中的重要地位<br>使她在英国享有优质的声誉</p>
-                </div>
-              </div>
-            </div>
-            <div class="faculty-member">
-               <div class="faculty-photo">
-                 <img src="/src/assets/proferssor/foreign/3.jpg" alt="Karin Askham校长" />
-               </div>
-               <div class="faculty-info">
-                 <h3 class="faculty-name">KARIN ASKHAM</h3>
-                 <p class="faculty-position">CSVPA 校长</p>
-                 <div class="faculty-bio">
-                   <p>毕业于爱丁堡人文与摄影哲学专业<br>曾任伦敦艺术大学学院校长<br>以及伦敦教育学院系统学院校长<br>她的明确作品代表了Attitude、ID、<br>The Face、NME以及Tank magazine<br>等众多出版刊物</p>
-                 </div>
-               </div>
-             </div>
              <div class="faculty-member">
                <div class="faculty-photo">
                  <img src="/src/assets/proferssor/foreign/4.jpg" alt="Kevin Hart教授" />
@@ -206,31 +194,42 @@
                  <h3 class="faculty-name">KEVIN HART</h3>
                  <p class="faculty-position">美术家</p>
                  <div class="faculty-bio">
-                   <p>曾在最中央圣马丁学院(CSM)传媒设计硕<br>士专业的教授<br>曾在伦敦、剑桥的画廊、博物馆和教堂多<br>次举办个人画展<br>其作品曾由一些知名的出版机构出版，如<br>Reed International, Mitchell Beazley和<br>Bloomsbury Books</p>
+                   <p>原先是中央圣马丁学院 (CSM)传媒设计硕士专业的教授<br>曾在伦敦、剑桥的画廊、博物馆和教堂多次举办过个人画展<br/>其作品曾由一些著名的出版机构出版，如Reed International, Mitchell Beazley 和Bloomsbury Books</p>
                  </div>
                </div>
              </div>
+            <div class="faculty-member">
+              <div class="faculty-photo">
+                <img src="/src/assets/proferssor/foreign/3.jpg" alt="Holly Fulton教授" />
+              </div>
+              <div class="faculty-info">
+                <h3 class="faculty-name">HOLLY FULTON</h3>
+                <p class="faculty-position">时尚品牌霍莉-富尔顿创始人</p>
+                <div class="faculty-bio">
+                  <p>英国《每日邮报》评论:她当之无愧为近 10 年来最亮眼的 “3D 印花和绚丽色彩” 设计女王<br>她不仅自己的设计品牌获得成功<br>同时她对时尚行业全球运作的理解以及她在伦敦时装周中的重要地位使她在英国享有极高的声誉</p>
+                </div>
+              </div>
+            </div>
              <div class="faculty-member">
                <div class="faculty-photo">
-                 <img src="/src/assets/proferssor/foreign/5.jpg" alt="Neil Ayling教授" />
+                 <img src="/src/assets/proferssor/foreign/1.jpg" alt="Neil Ayling教授" />
                </div>
                <div class="faculty-info">
                  <h3 class="faculty-name">NEIL AYLING</h3>
-                 <p class="faculty-position">艺术家</p>
                  <div class="faculty-bio">
-                   <p>他在2009年获得了Stanley Picker Trust<br>年度奖(Stanley Picker画廊由Stanley<br>Picker Trust资助成立于1997年，2012<br>年成为方英国艺术委员会的一部分)<br>他的作品曾在克里斯蒂尼克艺术博物馆、巴<br>克美术馆等展览，也在国家艺术学院展览</p>
+                   <p>他在 2009 年被授予 Stanley Picker Trust年度奖(Stanley Picker 画廊由 StanleyPicker Trust 资助成立于 1997年，2012年起成为英国艺术委员会的一部分)<br>他的作品曾在慕尼黑尼克松艺术博物馆、匹克美术馆等展览，也在皇家艺术学院展览</p>
                  </div>
                </div>
              </div>
              <div class="faculty-member">
                <div class="faculty-photo">
-                 <img src="/src/assets/proferssor/foreign/6.jpg" alt="Carolyn Timson教授" />
+                 <img src="/src/assets/proferssor/foreign/2.jpg" alt="Carolyn Timson教授" />
                </div>
                <div class="faculty-info">
                  <h3 class="faculty-name">CAROLYN TIMSON</h3>
-                 <p class="faculty-position">曾任汤米·希尔菲格(Tommy Hilfiger)设计总监</p>
+                 <p class="faculty-position"></p>
                  <div class="faculty-bio">
-                   <p>设计师和概念和制造设计总监<br>曾任FIVE Foxes、SPORTMAX、和<br>Moschino等大牌的设计师</p>
+                   <p>曾任汤米·希尔费格 (Tommy Hilfiger)的设计部副总裁和高级设计总监<br>曾任FIVE Foxes、SPORTMAX、和Moschino等大牌的设计师</p>
                  </div>
                </div>
              </div>
