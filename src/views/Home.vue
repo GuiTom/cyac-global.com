@@ -71,34 +71,34 @@
     <!-- 比赛介绍 -->
     <section id="about" class="about-section">
       <div class="container">
-        <h2 class="section-title">比赛介绍</h2>
+        <h2 class="section-title">Competition Introduction</h2>
         <div class="about-grid">
           <div class="about-card">
-            <h3>展览介绍</h3>
-            <p>艺术是全球通用的语言！在人类社会长长的历史进程中，因为有艺术的介入，人类才拥有万紫千红的美好生活，才能拥抱流光溢彩的大千世界。</p>
-            <p>本次“剑桥青少年艺术大赛”，旨在激发青少年创作的热情。本次展览将先后在国内的美术馆和英国剑桥校区举办。</p>
-            <p>借此，中英双方可以友好交流，相互启发，共同追求艺术创作之路！</p>
+            <h3>Exhibition Introduction</h3>
+            <p>Art is a universal language! Throughout human history, it is the influence of art that has enabled humanity to enjoy a vibrant and beautiful life and embrace the dazzling world.</p>
+            <p>The "Cambridge Youth Art Competition" aims to inspire young people's passion for creation. The exhibition will be held in art museums in China and at the Cambridge campus in the UK.</p>
+            <p>Throughout this period, both China and the UK can engage in friendly exchanges, gain mutual inspiration, and pursue a common path in artistic creation!</p>
           </div>
           <div class="about-card">
-            <h3>主办方学校介绍</h3>
-            <p class="school-name">CSVPA 是 （Cambridge School of Visual & Performing Arts）的缩写。</p>
+            <h3>About the Organizing School</h3>
+            <p class="school-name">CSVPA stands for Cambridge School of Visual & Performing Arts.</p>
             
             <div class="school-section">
-              <h4>学校概况</h4>
-              <p>英国顶级艺术院校，位于英国剑桥市，隶属于剑桥教育集团（Cambridge Education Group）。</p>
+              <h4>School Overview</h4>
+              <p>A top art school in the UK, located in Cambridge, UK, and affiliated with the Cambridge Education Group.</p>
             </div>
             
             <div class="school-section">
-              <h4>升学表现</h4>
+              <h4>Academic Progression Performance</h4>
               <ul class="achievement-list">
-                <li>艺术设计预科生升入伦敦艺术大学（UAL）的比例超过65%</li>
-                <li>其他顶尖去向包括皇家艺术学院、格拉斯哥艺术学院、帕森斯设计学院等</li>
+                <li>Over 65% of students in the Art and Design Foundation program are admitted to the University of the Arts London (UAL)</li>
+                <li>Other top destinations include the Royal College of Art, Glasgow School of Art, and Parsons School of Design</li>
               </ul>
             </div>
             
             <div class="school-section">
-              <h4>行业合作</h4>
-              <p>与伦艺、皇家戏剧学院（RADA）、赫斯特集团（旗下《ELLE》《Harper's Bazaar》等）深度合作，提供奖学金及实习机会。</p>
+              <h4>Industry Collaboration</h4>
+              <p>We will collaborate closely with the London School of Arts, the Royal Academy of Dramatic Art (RADA), and the Hearst Group (including ELLE and Harper's Bazaar), offering scholarships and internship opportunities.</p>
             </div>
           </div>
 
