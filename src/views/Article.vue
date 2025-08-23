@@ -7,7 +7,7 @@
           <router-link to="/" class="brand-link">CYAC Global</router-link>
         </div>
         <div class="nav-links">
-          <router-link to="/" class="nav-link">返回首页</router-link>
+          <router-link to="/" class="nav-link">Back to Home</router-link>
         </div>
       </div>
     </nav>
@@ -38,11 +38,11 @@
               <span class="tag" v-for="tag in article.tags" :key="tag">{{ tag }}</span>
             </div>
             <div class="article-share">
-              <h4>分享文章</h4>
+              <h4>Share Article</h4>
               <div class="share-buttons">
-                <button class="share-btn" @click="shareToWeChat">微信</button>
-                <button class="share-btn" @click="shareToWeibo">微博</button>
-                <button class="share-btn" @click="copyLink">复制链接</button>
+                <button class="share-btn" @click="shareToWeChat">WeChat</button>
+                <button class="share-btn" @click="shareToWeibo">Weibo</button>
+                <button class="share-btn" @click="copyLink">Copy Link</button>
               </div>
             </div>
           </footer>
@@ -50,7 +50,7 @@
         
         <!-- 相关文章 -->
         <section class="related-articles" v-if="relatedArticles.length > 0">
-          <h3>相关文章</h3>
+          <h3>Related Articles</h3>
           <div class="related-grid">
             <div 
               v-for="related in relatedArticles" 
@@ -88,114 +88,114 @@ export default {
     const articlesData = {
       1: {
         id: 1,
-        title: '2024年度CYAC大赛正式启动',
-        excerpt: '全球青少年艺术大赛2024年度比赛正式开始报名，欢迎各地青少年踊跃参与。',
-        category: '比赛信息',
+        title: '2024 CYAC Competition Officially Launched',
+        excerpt: 'The Global Youth Art Competition 2024 registration is now open. Young artists from around the world are welcome to participate.',
+        category: 'Competition News',
         date: '2024-01-15',
         image: './images/placeholder-news-1.svg',
         content: `
-          <p>全球青少年艺术大赛（CYAC Global Youth Art Competition）2024年度比赛正式启动！这是一个面向全球青少年艺术爱好者的重要平台，旨在发现和培养下一代艺术人才。</p>
+          <p>The Global Youth Art Competition (CYAC Global Youth Art Competition) 2024 is officially launched! This is an important platform for young art enthusiasts worldwide, aimed at discovering and nurturing the next generation of artistic talent.</p>
           
-          <h3>比赛详情</h3>
-          <p>本次比赛分为以下几个年龄组：</p>
+          <h3>Competition Details</h3>
+          <p>This competition is divided into the following age groups:</p>
           <ul>
-            <li>少儿组（6-12岁）</li>
-            <li>青少年组（13-17岁）</li>
-            <li>青年组（18-25岁）</li>
+            <li>Children's Group (6-12 years old)</li>
+            <li>Youth Group (13-17 years old)</li>
+            <li>Young Adult Group (18-25 years old)</li>
           </ul>
           
-          <h3>参赛类别</h3>
-          <p>参赛者可以选择以下任一类别进行创作：</p>
+          <h3>Competition Categories</h3>
+          <p>Participants can choose from any of the following categories:</p>
           <ul>
-            <li>绘画类：油画、水彩、素描、国画等</li>
-            <li>设计类：平面设计、产品设计、服装设计等</li>
-            <li>数字艺术类：数字绘画、3D建模、动画等</li>
-            <li>摄影类：艺术摄影、纪实摄影等</li>
+            <li>Painting: Oil painting, watercolor, sketching, Chinese painting, etc.</li>
+            <li>Design: Graphic design, product design, fashion design, etc.</li>
+            <li>Digital Art: Digital painting, 3D modeling, animation, etc.</li>
+            <li>Photography: Artistic photography, documentary photography, etc.</li>
           </ul>
           
-          <h3>奖项设置</h3>
-          <p>本次比赛设置丰厚奖项：</p>
+          <h3>Awards</h3>
+          <p>This competition offers generous prizes:</p>
           <ul>
-            <li>金奖：奖金10000元 + 证书 + 国际艺术游学机会</li>
-            <li>银奖：奖金5000元 + 证书 + 艺术用品大礼包</li>
-            <li>铜奖：奖金2000元 + 证书</li>
-            <li>优秀奖：证书 + 纪念品</li>
+            <li>Gold Award: 10,000 RMB + Certificate + International Art Study Tour</li>
+            <li>Silver Award: 5,000 RMB + Certificate + Art Supplies Gift Package</li>
+            <li>Bronze Award: 2,000 RMB + Certificate</li>
+            <li>Excellence Award: Certificate + Commemorative Gift</li>
           </ul>
           
-          <h3>报名方式</h3>
-          <p>请访问我们的官方网站进行在线报名，或联系当地合作机构。报名截止日期为2024年3月31日。</p>
+          <h3>Registration</h3>
+          <p>Please visit our official website for online registration, or contact local partner institutions. Registration deadline is March 31, 2024.</p>
           
-          <p>我们期待看到来自世界各地青少年的精彩作品！</p>
+          <p>We look forward to seeing wonderful works from young people around the world!</p>
         `,
-        tags: ['比赛', '艺术', '青少年', '2024']
+        tags: ['Competition', 'Art', 'Youth', '2024']
       },
       2: {
         id: 2,
-        title: '国际艺术交流展览即将举办',
-        excerpt: '为促进国际青少年艺术交流，我们将举办大型艺术作品展览活动。',
-        category: '展览信息',
+        title: 'International Art Exchange Exhibition Coming Soon',
+        excerpt: 'To promote international youth art exchange, we will host a large-scale art exhibition.',
+        category: 'Exhibition News',
         date: '2024-01-10',
         image: './images/placeholder-news-2.svg',
         content: `
-          <p>CYAC Global将于2024年4月在北京举办大型国际青少年艺术交流展览，这是一次汇聚全球优秀青少年艺术作品的盛会。</p>
+          <p>CYAC Global will host a large-scale international youth art exchange exhibition in Beijing in April 2024, bringing together outstanding youth artworks from around the world.</p>
           
-          <h3>展览亮点</h3>
-          <p>本次展览将展出来自50多个国家和地区的优秀作品，涵盖传统绘画、现代设计、数字艺术等多个领域。</p>
+          <h3>Exhibition Highlights</h3>
+          <p>This exhibition will showcase excellent works from over 50 countries and regions, covering traditional painting, modern design, digital art, and many other fields.</p>
           
-          <h3>特色活动</h3>
+          <h3>Special Activities</h3>
           <ul>
-            <li>艺术家现场创作表演</li>
-            <li>国际艺术教育论坛</li>
-            <li>青少年艺术工作坊</li>
-            <li>文化交流晚会</li>
+            <li>Live artist creation performances</li>
+            <li>International art education forum</li>
+            <li>Youth art workshops</li>
+            <li>Cultural exchange evening</li>
           </ul>
           
-          <h3>参观信息</h3>
-          <p>展览时间：2024年4月15日-25日<br>
-          展览地点：北京国际艺术中心<br>
-          门票：免费（需提前预约）</p>
+          <h3>Visitor Information</h3>
+          <p>Exhibition dates: April 15-25, 2024<br>
+          Venue: Beijing International Art Center<br>
+          Tickets: Free (advance reservation required)</p>
         `,
-        tags: ['展览', '国际交流', '艺术', '北京']
+        tags: ['Exhibition', 'International Exchange', 'Art', 'Beijing']
       },
       3: {
         id: 3,
-        title: '艺术游学项目开放申请',
-        excerpt: '面向获奖选手开放的国际艺术游学项目现已开始接受申请。',
-        category: '游学信息',
+        title: 'Art Study Tour Program Now Open for Applications',
+        excerpt: 'The international art study tour program for award winners is now accepting applications.',
+        category: 'Study Tour News',
         date: '2024-01-05',
         image: './images/placeholder-news-3.svg',
         content: `
-          <p>CYAC Global国际艺术游学项目正式开放申请！这是一个专为获奖选手设计的深度艺术学习体验项目。</p>
+          <p>The CYAC Global international art study tour program is officially open for applications! This is an in-depth art learning experience program designed specifically for award winners.</p>
           
-          <h3>游学目的地</h3>
+          <h3>Study Tour Destinations</h3>
           <ul>
-            <li>法国巴黎 - 卢浮宫艺术研修</li>
-            <li>意大利佛罗伦萨 - 文艺复兴艺术探索</li>
-            <li>英国伦敦 - 现代艺术与设计</li>
-            <li>美国纽约 - 当代艺术与博物馆学习</li>
+            <li>Paris, France - Louvre Art Studies</li>
+            <li>Florence, Italy - Renaissance Art Exploration</li>
+            <li>London, UK - Modern Art and Design</li>
+            <li>New York, USA - Contemporary Art and Museum Studies</li>
           </ul>
           
-          <h3>项目内容</h3>
-          <p>为期两周的深度艺术学习之旅，包括：</p>
+          <h3>Program Content</h3>
+          <p>A two-week intensive art learning journey, including:</p>
           <ul>
-            <li>世界顶级博物馆参观学习</li>
-            <li>知名艺术院校交流访问</li>
-            <li>国际艺术大师工作坊</li>
-            <li>文化遗产实地考察</li>
-            <li>创作实践与作品展示</li>
+            <li>Visits to world-class museums</li>
+            <li>Exchange visits to renowned art schools</li>
+            <li>International master artist workshops</li>
+            <li>Cultural heritage site visits</li>
+            <li>Creative practice and artwork exhibitions</li>
           </ul>
           
-          <h3>申请条件</h3>
+          <h3>Application Requirements</h3>
           <ul>
-            <li>CYAC比赛金奖、银奖获得者</li>
-            <li>年龄13-25岁</li>
-            <li>具备基本英语交流能力</li>
-            <li>身体健康，适合国际旅行</li>
+            <li>CYAC competition gold or silver award winners</li>
+            <li>Age 13-25 years old</li>
+            <li>Basic English communication skills</li>
+            <li>Good health, suitable for international travel</li>
           </ul>
           
-          <p>申请截止日期：2024年2月29日</p>
+          <p>Application deadline: February 29, 2024</p>
         `,
-        tags: ['游学', '国际', '获奖选手', '艺术教育']
+        tags: ['Study Tour', 'International', 'Award Winners', 'Art Education']
       }
     }
     
@@ -220,19 +220,19 @@ export default {
     
     const shareToWeChat = () => {
       // 微信分享逻辑
-      alert('微信分享功能开发中')
+      alert('WeChat sharing feature under development')
     }
     
     const shareToWeibo = () => {
       // 微博分享逻辑
-      alert('微博分享功能开发中')
+      alert('Weibo sharing feature under development')
     }
     
     const copyLink = () => {
       // 复制链接
       const url = window.location.href
       navigator.clipboard.writeText(url).then(() => {
-        alert('链接已复制到剪贴板')
+        alert('Link copied to clipboard')
       })
     }
     

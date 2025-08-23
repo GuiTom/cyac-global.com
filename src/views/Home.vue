@@ -8,25 +8,25 @@
         </div>
         <ul class="nav-menu" :class="{ active: isMenuOpen }">
           <li class="nav-item">
-            <a href="#home" class="nav-link" @click="handleNavClick">首页</a>
+            <a href="#home" class="nav-link" @click="handleNavClick">Home</a>
           </li>
           <li class="nav-item">
-            <a href="#about" class="nav-link" @click="handleNavClick">比赛介绍</a>
+            <a href="#about" class="nav-link" @click="handleNavClick">Competition</a>
           </li>
           <li class="nav-item">
-            <a href="#professors" class="nav-link" @click="handleNavClick">教授团队</a>
+            <a href="#professors" class="nav-link" @click="handleNavClick">Judges</a>
           </li>
           <li class="nav-item">
-            <a href="#query" class="nav-link" @click="handleNavClick">获奖查询</a>
+            <a href="#query" class="nav-link" @click="handleNavClick">Awards Query</a>
           </li>
           <li class="nav-item">
-            <a href="#gallery" class="nav-link" @click="handleNavClick">优秀作品</a>
+            <a href="#gallery" class="nav-link" @click="handleNavClick">Gallery</a>
           </li>
           <li class="nav-item">
-            <a href="#news" class="nav-link" @click="handleNavClick">动态发布</a>
+            <a href="#news" class="nav-link" @click="handleNavClick">News</a>
           </li>
           <li class="nav-item">
-            <a href="#contact" class="nav-link" @click="handleNavClick">联系我们</a>
+            <a href="#contact" class="nav-link" @click="handleNavClick">Contact</a>
           </li>
         </ul>
         <div class="hamburger" :class="{ active: isMenuOpen }" @click="toggleMenu">
@@ -61,7 +61,7 @@
             <div class="slide-text">
               <h1>{{ slide.title }}</h1>
               <p>{{ slide.description }}</p>
-              <a v-if="slide.link" :href="slide.link" class="cta-button">了解更多</a>
+              <a v-if="slide.link" :href="slide.link" class="cta-button">Learn More</a>
             </div>
           </div>
         </swiper-slide>
@@ -118,37 +118,37 @@
           <div class="faculty-grid">
             <div class="faculty-member">
               <div class="faculty-photo">
-                <img src="/src/assets/proferssor/1.jpg" alt="梁卫洲教授" />
+                <img src="/src/assets/proferssor/1.jpg" alt="Professor Liang Weizhou" />
               </div>
               <div class="faculty-info">
-                <h3 class="faculty-name">梁卫洲</h3>
-                <p class="faculty-position">当代著名大家、摄影家</p>
+                <h3 class="faculty-name">LIANG WEIZHOU</h3>
+                <p class="faculty-position">Contemporary Renowned Artist & Photographer</p>
                 <div class="faculty-bio">
-                  <p>当代著名艺术家、摄影家<br>曾任华东师范大学美术教授<br>曾于上海美术馆开个展<br>受邀去德国、奥地利、瑞典、新加坡等国办展</p>
+                  <p>Contemporary renowned artist and photographer<br>Former Professor of Fine Arts at East China Normal University<br>Held solo exhibitions at Shanghai Art Museum<br>Invited to exhibit in Germany, Austria, Sweden, Singapore and other countries</p>
                 </div>
               </div>
             </div>
             <div class="faculty-member">
               <div class="faculty-photo">
-                <img src="/src/assets/proferssor/2.jpg" alt="孙燕平教授" />
+                <img src="/src/assets/proferssor/2.jpg" alt="Professor Sun Yanping" />
               </div>
               <div class="faculty-info">
-                <h3 class="faculty-name">孙燕平</h3>
-                <p class="faculty-position">当代知名书法家</p>
+                <h3 class="faculty-name">SUN YANPING</h3>
+                <p class="faculty-position">Contemporary Renowned Calligrapher</p>
                 <div class="faculty-bio">
-                  <p>当代知名书法家<br>上海"九三学社书画院"画师静安区书协理事<br>上海华山美校教师<br>装置作品《中国板书》入选《米兰国际三年展》<br>稚拙的字体风格独树一帜</p>
+                  <p>Contemporary renowned calligrapher<br>Artist at Shanghai "Jiusan Society Calligraphy and Painting Academy", Director of Jing'an District Calligraphy Association<br>Teacher at Shanghai Huashan Art School<br>Installation work "Chinese Blackboard Writing" selected for Milan International Triennial<br>Unique naive calligraphy style</p>
                 </div>
               </div>
             </div>
             <div class="faculty-member">
               <div class="faculty-photo">
-                <img src="/src/assets/proferssor/3.jpg" alt="倪士华教授" />
+                <img src="/src/assets/proferssor/3.jpg" alt="Professor Ni Shihua" />
               </div>
               <div class="faculty-info">
-                <h3 class="faculty-name">倪士华</h3>
-                <p class="faculty-position">现任宁夏美术家协会副主席</p>
+                <h3 class="faculty-name">NI SHIHUA</h3>
+                <p class="faculty-position">Vice Chairman of Ningxia Artists Association</p>
                 <div class="faculty-bio">
-                  <p>现任宁夏美术家协会副主席<br>银川书画院院长<br>国家一级美术师<br>清华大学美术学院高研班导师<br>作品被各级博物馆广为收藏<br>从事艺术教育三十余年</p>
+                  <p>Current Vice Chairman of Ningxia Artists Association<br>Director of Yinchuan Calligraphy and Painting Academy<br>National First-Class Artist<br>Mentor at Tsinghua University Academy of Fine Arts Advanced Studies Program<br>Works widely collected by museums at all levels<br>Over thirty years of experience in art education</p>
                 </div>
               </div>
             </div>
@@ -168,9 +168,9 @@
                </div>
                <div class="faculty-info">
                  <h3 class="faculty-name">KARIN ASKHAM</h3>
-                 
+                 <p class="faculty-position">Principal</p>
                  <div class="faculty-bio">
-                   <p>毕业于皇艺人文与摄影哲学专业<br>曾任伦艺伦敦时装学院研究生院副校长以及伦敦传播学院传媒学院校长<br>她的摄影作品被刊登于Attitude、iD.The Face、 NME 以及 Tank magazine等众多出版刊物</p>
+                   <p>Graduated from Royal College of Art with a degree in Humanities and Photography Philosophy<br>Former Deputy Principal of Graduate School at London College of Fashion, UAL, and Principal of Media School at London College of Communication<br>Her photography works have been published in numerous publications including Attitude, iD.The Face, NME and Tank magazine</p>
                  </div>
                </div>
              </div>
@@ -180,9 +180,9 @@
               </div>
               <div class="faculty-info">
                 <h3 class="faculty-name">EDWARD DIMSDALE</h3>
-                <p class="faculty-position">摄影家、作家</p>
+                <p class="faculty-position">Photographer & Author</p>
                 <div class="faculty-bio">
-                  <p>自 1998年以来，他一直代表 HackelBuryFine Art(伦敦)广泛展出他的摄影作品<br>出版摄影刊物《Stiled》<br>他在伦艺伦敦传播学院工作 10 年，教授摄影文学学士和硕士学位课程<br>还曾在巴特利特建筑学院和斯莱德艺术学院任教</p>
+                  <p>Since 1998, he has extensively exhibited his photographic work representing HackelBury Fine Art (London)<br>Published photography publication "Stiled"<br>He worked at London College of Communication, UAL for 10 years, teaching Photography BA and MA degree programs<br>Also taught at The Bartlett School of Architecture and Slade School of Fine Art</p>
                 </div>
               </div>
             </div>
@@ -192,9 +192,9 @@
                </div>
                <div class="faculty-info">
                  <h3 class="faculty-name">KEVIN HART</h3>
-                 <p class="faculty-position">美术家</p>
+                 <p class="faculty-position">Artist</p>
                  <div class="faculty-bio">
-                   <p>原先是中央圣马丁学院 (CSM)传媒设计硕士专业的教授<br>曾在伦敦、剑桥的画廊、博物馆和教堂多次举办过个人画展<br/>其作品曾由一些著名的出版机构出版，如Reed International, Mitchell Beazley 和Bloomsbury Books</p>
+                   <p>Former Professor of Media Design MA at Central Saint Martins (CSM)<br>Has held multiple solo exhibitions in galleries, museums and churches in London and Cambridge<br>His works have been published by renowned publishing houses including Reed International, Mitchell Beazley and Bloomsbury Books</p>
                  </div>
                </div>
              </div>
@@ -204,9 +204,9 @@
               </div>
               <div class="faculty-info">
                 <h3 class="faculty-name">HOLLY FULTON</h3>
-                <p class="faculty-position">时尚品牌霍莉-富尔顿创始人</p>
+                <p class="faculty-position">Founder of Fashion Brand Holly Fulton</p>
                 <div class="faculty-bio">
-                  <p>英国《每日邮报》评论:她当之无愧为近 10 年来最亮眼的 “3D 印花和绚丽色彩” 设计女王<br>她不仅自己的设计品牌获得成功<br>同时她对时尚行业全球运作的理解以及她在伦敦时装周中的重要地位使她在英国享有极高的声誉</p>
+                  <p>The UK Daily Mail commented: She is undoubtedly the most brilliant "3D print and vibrant color" design queen of the past 10 years<br>Not only has her own design brand achieved success<br>Her understanding of the global fashion industry operations and her important position in London Fashion Week have earned her extremely high reputation in the UK</p>
                 </div>
               </div>
             </div>
@@ -216,8 +216,9 @@
                </div>
                <div class="faculty-info">
                  <h3 class="faculty-name">NEIL AYLING</h3>
+                 <p class="faculty-position">Artist</p>
                  <div class="faculty-bio">
-                   <p>他在 2009 年被授予 Stanley Picker Trust年度奖(Stanley Picker 画廊由 StanleyPicker Trust 资助成立于 1997年，2012年起成为英国艺术委员会的一部分)<br>他的作品曾在慕尼黑尼克松艺术博物馆、匹克美术馆等展览，也在皇家艺术学院展览</p>
+                   <p>He was awarded the Stanley Picker Trust Annual Award in 2009 (Stanley Picker Gallery was established in 1997 with funding from Stanley Picker Trust and became part of the Arts Council England from 2012)<br>His works have been exhibited at the Nixon Art Museum in Munich, Picker Art Gallery, and also at the Royal Academy of Arts</p>
                  </div>
                </div>
              </div>
@@ -227,9 +228,9 @@
                </div>
                <div class="faculty-info">
                  <h3 class="faculty-name">CAROLYN TIMSON</h3>
-                 <p class="faculty-position"></p>
+                 <p class="faculty-position">Fashion Designer</p>
                  <div class="faculty-bio">
-                   <p>曾任汤米·希尔费格 (Tommy Hilfiger)的设计部副总裁和高级设计总监<br>曾任FIVE Foxes、SPORTMAX、和Moschino等大牌的设计师</p>
+                   <p>Former Vice President and Senior Design Director of Design Department at Tommy Hilfiger<br>Former designer for major brands including FIVE Foxes, SPORTMAX, and Moschino</p>
                  </div>
                </div>
              </div>
@@ -241,11 +242,11 @@
     <!-- 获奖查询 -->
     <section id="query" class="query-section">
       <div class="container">
-        <h2 class="section-title">获奖查询</h2>
+        <h2 class="section-title">Awards Query</h2>
         <div class="query-intro">
-          <p class="query-description">输入奖项编号或获奖者姓名查询获奖信息</p>
-          <p class="query-note">支持按编号查询和按姓名查询，可查看获奖证书和相关信息</p>
-          <router-link to="/query" class="query-button">进入查询页面</router-link>
+          <p class="query-description">Enter award number or winner's name to query award information</p>
+          <p class="query-note">Supports query by number and by name, view award certificates and related information</p>
+          <router-link to="/query" class="query-button">Enter Query Page</router-link>
         </div>
       </div>
     </section>
@@ -253,7 +254,7 @@
     <!-- 优秀作品 -->
     <section id="gallery" class="gallery-section">
       <div class="container">
-        <h2 class="section-title">优秀选手作品</h2>
+        <h2 class="section-title">Excellent Works</h2>
         <div class="gallery-filters">
           <button 
             v-for="category in categories" 
@@ -285,7 +286,7 @@
     <!-- 动态发布 -->
     <section id="news" class="news-section">
       <div class="container">
-        <h2 class="section-title">动态发布</h2>
+        <h2 class="section-title">News & Updates</h2>
         <div class="news-grid">
           <article v-for="news in newsItems" :key="news.id" class="news-card">
             <img :src="news.image" :alt="news.title">
@@ -295,7 +296,7 @@
               <p>{{ news.excerpt }}</p>
               <div class="news-meta">
                 <span class="news-date">{{ news.date }}</span>
-                <a :href="news.url" target="_blank" class="read-more">阅读更多</a>
+                <a :href="news.url" target="_blank" class="read-more">Read More</a>
               </div>
             </div>
           </article>
@@ -306,27 +307,27 @@
     <!-- 联系我们 -->
     <section id="contact" class="contact-section">
       <div class="container">
-        <h2 class="section-title">联系我们</h2>
+        <h2 class="section-title">Contact Us</h2>
         <div class="contact-grid">
           <div class="contact-info">
-            <h3>联系方式</h3>
+            <h3>Contact Information</h3>
             <div class="contact-item">
-              <strong>邮箱：</strong>
+              <strong>Email:</strong>
               <span>info@cyac-global.com</span>
             </div>
             <div class="contact-item">
-              <strong>电话：</strong>
+              <strong>Phone:</strong>
               <span>+86 400-123-4567</span>
             </div>
             <div class="contact-item">
-              <strong>地址：</strong>
-              <span>北京市朝阳区艺术大道123号</span>
+              <strong>Address:</strong>
+              <span>123 Art Avenue, Chaoyang District, Beijing</span>
             </div>
           </div>
           <div class="contact-qr">
-            <h3>扫码关注</h3>
+            <h3>Follow Us</h3>
             <div class="qr-code">
-              <div class="qr-placeholder">微信二维码</div>
+              <div class="qr-placeholder">WeChat QR Code</div>
             </div>
           </div>
         </div>
@@ -339,21 +340,21 @@
         <div class="footer-content">
           <div class="footer-section">
             <h3>CYAC Global</h3>
-            <p>全球青少年艺术大赛官方网站</p>
+            <p>Official website of Global Youth Art Competition</p>
           </div>
           <div class="footer-section">
-            <h4>快速链接</h4>
+            <h4>Quick Links</h4>
             <ul>
-              <li><a href="#about">比赛介绍</a></li>
-              <li><a href="#query">获奖查询</a></li>
-              <li><a href="#gallery">优秀作品</a></li>
-              <li><a href="#news">动态发布</a></li>
+              <li><a href="#about">Competition Introduction</a></li>
+              <li><a href="#query">Awards Query</a></li>
+              <li><a href="#gallery">Excellent Works</a></li>
+              <li><a href="#news">News & Updates</a></li>
             </ul>
           </div>
           <div class="footer-section">
-            <h4>联系信息</h4>
-            <p>邮箱：info@cyac-global.com</p>
-            <p>电话：+86 400-123-4567</p>
+            <h4>Contact Information</h4>
+            <p>Email: info@cyac-global.com</p>
+            <p>Phone: +86 400-123-4567</p>
           </div>
         </div>
         <div class="footer-bottom">
@@ -374,9 +375,9 @@
         <img :src="modalWork.image" :alt="modalWork.title">
         <div class="modal-info">
           <h3>{{ modalWork.title }}</h3>
-          <p><strong>作者：</strong>{{ modalWork.author }}</p>
-          <p><strong>年龄组：</strong>{{ modalWork.category }}</p>
-          <p><strong>描述：</strong>{{ modalWork.description }}</p>
+          <p><strong>Author:</strong>{{ modalWork.author }}</p>
+          <p><strong>Age Group:</strong>{{ modalWork.category }}</p>
+          <p><strong>Description:</strong>{{ modalWork.description }}</p>
         </div>
       </div>
     </div>
@@ -404,7 +405,7 @@ export default {
     
     // 响应式数据
     const isMenuOpen = ref(false)
-    const activeCategory = ref('全部')
+    const activeCategory = ref('All')
     const showBackToTop = ref(false)
     const modalWork = ref(null)
     const swiperContainer = ref(null)
@@ -416,88 +417,88 @@ export default {
     const carouselSlides = ref([
       {
         title: 'CYAC Global Youth Art Competition',
-        description: '激发创意，展现才华，连接世界',
+        description: 'Inspire creativity, showcase talent, connect the world',
         image: './top_coursels/1.jpg',
         link: '#about'
       },
       {
-        title: '全球青少年艺术盛典',
-        description: '汇聚世界各地的青少年艺术家',
+        title: 'Global Youth Art Festival',
+        description: 'Bringing together young artists from around the world',
         image: './top_coursels/2.jpg',
         link: '#gallery'
       },
       {
-        title: '专业评审，权威认证',
-        description: '国际知名艺术教授专业评审',
+        title: 'Professional Judging, Authoritative Certification',
+        description: 'Professional evaluation by internationally renowned art professors',
         image: './top_coursels/3.jpg',
         link: '#query'
       },
       {
-        title: '艺术创作之旅',
-        description: '开启你的艺术创作之旅',
+        title: 'Artistic Creation Journey',
+        description: 'Begin your artistic creation journey',
         image: './top_coursels/4.jpg',
         link: '#about'
       },
       {
-        title: '国际艺术交流',
-        description: '与世界各地的艺术家交流学习',
+        title: 'International Art Exchange',
+        description: 'Exchange and learn with artists from around the world',
         image: './top_coursels/5.jpg',
         link: '#gallery'
       }
     ])
 
     // 作品分类
-    const categories = ref(['全部', '少儿组', '少年组', '青年组'])
+    const categories = ref(['All', 'Children', 'Youth', 'Young Adult'])
 
     // 作品数据
     const galleryWorks = ref([
       {
         id: 1,
-        title: '梦想的色彩',
-        author: '张小明',
-        category: '少儿组',
+        title: 'Colors of Dreams',
+        author: 'Zhang Xiaoming',
+        category: 'Children',
         image: './works/children/1.jpg',
-        description: '这幅作品表达了孩子对未来的美好憧憬'
+        description: 'This artwork expresses children\'s beautiful aspirations for the future'
       },
       {
         id: 2,
-        title: '城市印象',
-        author: '李小红',
-        category: '少儿组',
+        title: 'City Impressions',
+        author: 'Li Xiaohong',
+        category: 'Children',
         image: './works/children/2.jpg',
-        description: '通过独特的视角展现现代城市的魅力'
+        description: 'Showcasing the charm of modern cities through a unique perspective'
       },
       {
         id: 3,
-        title: '自然之美',
-        author: '王小华',
-        category: '少年组',
+        title: 'Beauty of Nature',
+        author: 'Wang Xiaohua',
+        category: 'Youth',
         image: './works/youth/1.jpg',
-        description: '细腻的笔触描绘了大自然的壮美景色'
+        description: 'Delicate brushstrokes depicting the magnificent scenery of nature'
       },
       {
         id: 4,
-        title: '抽象思维',
-        author: '赵小刚',
-        category: '少年组',
+        title: 'Abstract Thinking',
+        author: 'Zhao Xiaogang',
+        category: 'Youth',
         image: './works/youth/2.jpg',
-        description: '运用抽象手法表达内心的情感世界'
+        description: 'Using abstract techniques to express the inner emotional world'
       },
       {
         id: 5,
-        title: '青春记忆',
-        author: '陈小美',
-        category: '青年组',
+        title: 'Memories of Youth',
+        author: 'Chen Xiaomei',
+        category: 'Young Adult',
         image: './works/adult/1.jpg',
-        description: '记录青春年华的美好时光，画面温馨感人'
+        description: 'Recording the beautiful moments of youth, with warm and touching imagery'
       },
       {
         id: 6,
-        title: '未来世界',
-        author: '刘小强',
-        category: '青年组',
+        title: 'Future World',
+        author: 'Liu Xiaoqiang',
+        category: 'Young Adult',
         image: './works/adult/2.jpg',
-        description: '想象中的未来世界，充满科技感和创新思维'
+        description: 'An imagined future world full of technology and innovative thinking'
       }
     ])
 
@@ -505,26 +506,26 @@ export default {
     const newsItems = ref([
       {
         id: 1,
-        title: '2024年度CYAC大赛正式启动',
-        excerpt: '全球青少年艺术大赛2024年度比赛正式开始报名，欢迎各地青少年踊跃参与。',
-        category: '比赛信息',
+        title: '2024 CYAC Competition Officially Launched',
+        excerpt: 'The Global Youth Art Competition 2024 registration is now officially open, welcoming young people from all regions to participate.',
+        category: 'Competition News',
         date: '2024-01-15',
         image: './images/placeholder-news-1.svg'
       },
       {
         id: 2,
-        title: '王小慧展览，圆满闭幕',
-        excerpt: '为促进国际青少年艺术交流，王小慧举办了大型艺术作品展览活动。',
-        category: '展览信息',
+        title: 'Wang Xiaohui Exhibition Successfully Concluded',
+        excerpt: 'To promote international youth art exchange, Wang Xiaohui held a large-scale art exhibition.',
+        category: 'Exhibition News',
         date: '2024-01-10',
         image: './images/placeholder-news-2.svg',
         url:'https://mp.weixin.qq.com/s/9OaX_DLwBJCAXbX7yEOgyg'
       },
       {
         id: 3,
-        title: '艺术游学项目开放申请',
-        excerpt: '面向获奖选手开放的国际艺术游学项目现已开始接受申请。',
-        category: '游学信息',
+        title: 'Art Study Tour Program Open for Applications',
+        excerpt: 'International art study tour program for award winners is now accepting applications.',
+        category: 'Study Tour News',
         date: '2024-01-05',
         image: './images/placeholder-news-3.svg'
       }
@@ -532,7 +533,7 @@ export default {
 
     // 计算属性
     const filteredWorks = computed(() => {
-      if (activeCategory.value === '全部') {
+      if (activeCategory.value === 'All') {
         return galleryWorks.value
       }
       return galleryWorks.value.filter(work => work.category === activeCategory.value)

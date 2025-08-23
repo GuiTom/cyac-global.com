@@ -7,7 +7,7 @@
           <router-link to="/" class="brand-link">CYAC Global</router-link>
         </div>
         <div class="nav-links">
-          <router-link to="/" class="nav-link">返回首页</router-link>
+          <router-link to="/" class="nav-link">Back to Home</router-link>
         </div>
       </div>
     </nav>
@@ -15,8 +15,8 @@
     <!-- 页面标题 -->
     <section class="page-header">
       <div class="container">
-        <h1 class="page-title">作品画廊</h1>
-        <p class="page-description">3D展示优秀作品</p>
+        <h1 class="page-title">Works Gallery</h1>
+        <p class="page-description">3D Display of Excellent Works</p>
       </div>
     </section>
 
@@ -53,9 +53,9 @@
             <img :src="selectedWork.image" :alt="selectedWork.title" class="detail-image" />
             <div class="detail-info">
               <h2>{{ selectedWork.title }}</h2>
-              <p><strong>作者：</strong>{{ selectedWork.author }}</p>
-              <p><strong>年龄组：</strong>{{ selectedWork.category }}</p>
-              <p><strong>描述：</strong>{{ selectedWork.description }}</p>
+              <p><strong>Author:</strong>{{ selectedWork.author }}</p>
+              <p><strong>Age Group:</strong>{{ selectedWork.category }}</p>
+              <p><strong>Description:</strong>{{ selectedWork.description }}</p>
             </div>
             <button @click="closeDetails" class="close-btn">×</button>
           </div>
@@ -87,51 +87,51 @@ export default {
     const galleryWorks = ref([
       {
         id: 1,
-        title: '梦想的色彩',
-        author: '张小明',
-        category: '少儿组',
+        title: 'Colors of Dreams',
+        author: 'Zhang Xiaoming',
+        category: 'Children Group',
         image: work1,
-        description: '这幅作品表达了孩子对未来的美好憧憬，用鲜艳的色彩描绘出心中的梦想世界。'
+        description: 'This work expresses children\'s beautiful aspirations for the future, using vibrant colors to depict the dream world in their hearts.'
       },
       {
         id: 2,
-        title: '城市印象',
-        author: '李小红',
-        category: '少儿组',
+        title: 'City Impressions',
+        author: 'Li Xiaohong',
+        category: 'Children Group',
         image: work2,
-        description: '通过独特的视角展现现代城市的魅力，线条流畅，构图新颖。'
+        description: 'Shows the charm of modern cities through a unique perspective, with smooth lines and innovative composition.'
       },
       {
         id: 3,
-        title: '自然之美',
-        author: '王小华',
-        category: '少年组',
+        title: 'Beauty of Nature',
+        author: 'Wang Xiaohua',
+        category: 'Youth Group',
         image: work3,
-        description: '细腻的笔触描绘了大自然的壮美景色，展现了作者对自然的深刻理解。'
+        description: 'Delicate brushstrokes depict the magnificent scenery of nature, showing the author\'s deep understanding of nature.'
       },
       {
         id: 4,
-        title: '抽象思维',
-        author: '赵小刚',
-        category: '少年组',
+        title: 'Abstract Thinking',
+        author: 'Zhao Xiaogang',
+        category: 'Youth Group',
         image: work4,
-        description: '运用抽象手法表达内心的情感世界，色彩搭配独特，富有创意。'
+        description: 'Uses abstract techniques to express the inner emotional world, with unique color combinations and rich creativity.'
       },
       {
         id: 5,
-        title: '青春记忆',
-        author: '陈小美',
-        category: '青年组',
+        title: 'Memories of Youth',
+        author: 'Chen Xiaomei',
+        category: 'Young Adult Group',
         image: work5,
-        description: '记录青春年华的美好时光，画面温馨感人，技法娴熟。'
+        description: 'Records the beautiful moments of youth, with warm and touching scenes and skillful techniques.'
       },
       {
         id: 6,
-        title: '未来世界',
-        author: '刘小强',
-        category: '青年组',
+        title: 'Future World',
+        author: 'Liu Xiaoqiang',
+        category: 'Young Adult Group',
         image: work6,
-        description: '想象中的未来世界，充满科技感和创新思维，展现了年轻人的无限想象力。'
+        description: 'An imagined future world full of technology and innovative thinking, showcasing the unlimited imagination of young people.'
       }
     ])
     

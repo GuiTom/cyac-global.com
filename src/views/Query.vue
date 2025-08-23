@@ -7,7 +7,7 @@
           <router-link to="/" class="brand-link">CYAC Global</router-link>
         </div>
         <div class="nav-links">
-          <router-link to="/" class="nav-link">返回首页</router-link>
+          <router-link to="/" class="nav-link">Back to Home</router-link>
         </div>
       </div>
     </nav>
@@ -15,8 +15,8 @@
     <!-- 页面标题 -->
     <section class="page-header">
       <div class="container">
-        <h1 class="page-title">获奖查询</h1>
-        <p class="page-description">输入奖项编号或获奖者姓名查询获奖信息</p>
+        <h1 class="page-title">Awards Query</h1>
+        <p class="page-description">Enter award number or winner's name to query award information</p>
       </div>
     </section>
 
@@ -30,32 +30,32 @@
               :class="{ active: queryType === 'number' }"
               @click="queryType = 'number'"
             >
-              按奖项编号查询
+              Query by Award Number
             </button>
             <button 
               class="tab-button" 
               :class="{ active: queryType === 'name' }"
               @click="queryType = 'name'"
             >
-              按姓名查询
+              Query by Name
             </button>
           </div>
           <div class="query-filter">
-            <span class="filter-label">查询类型：</span>
+            <span class="filter-label">Query Type:</span>
             <div class="filter-buttons">
               <button 
                 class="filter-button" 
                 :class="{ active: awardFilter === 'finalist' }"
                 @click="awardFilter = 'finalist'"
               >
-                入围
+                Finalist
               </button>
               <button 
                 class="filter-button" 
                 :class="{ active: awardFilter === 'winner' }"
                 @click="awardFilter = 'winner'"
               >
-                获奖
+                Winner
               </button>
             </div>
           </div>
@@ -64,42 +64,42 @@
               v-if="queryType === 'number'"
               v-model="queryNumber"
               type="text" 
-              placeholder="请输入奖项编号"
+              placeholder="Please enter award number"
               class="input-field"
             >
             <input 
               v-if="queryType === 'name'"
               v-model="queryName"
               type="text" 
-              placeholder="请输入获奖者姓名"
+              placeholder="Please enter winner's name"
               class="input-field"
             >
-            <button @click="searchAward" class="search-button">查询</button>
+            <button @click="searchAward" class="search-button">Search</button>
           </div>
           <div class="query-result" v-if="queryResult">
-            <h3>查询结果</h3>
+            <h3>Query Results</h3>
             <div class="result-card">
               <div class="result-info">
                 <table class="result-table">
                   <tbody>
                     <tr>
-                      <td class="label">获奖者：</td>
+                      <td class="label">Winner:</td>
                       <td class="value">{{ queryResult.name }}</td>
                     </tr>
                     <tr>
-                      <td class="label">状态：</td>
+                      <td class="label">Status:</td>
                       <td class="value">{{ queryResult.status }}</td>
                     </tr>
                     <tr>
-                      <td class="label">奖项：</td>
+                      <td class="label">Award:</td>
                       <td class="value">{{ queryResult.award }}</td>
                     </tr>
                     <tr>
-                      <td class="label">编号：</td>
+                      <td class="label">Number:</td>
                       <td class="value">{{ queryResult.number }}</td>
                     </tr>
                     <tr>
-                      <td class="label">年份：</td>
+                      <td class="label">Year:</td>
                       <td class="value">{{ queryResult.year }}</td>
                     </tr>
                   </tbody>
@@ -107,12 +107,12 @@
               </div>
               <div class="certificate-section">
                 <div class="certificate-preview">
-                  <img :src="certificateImg" alt="获奖证书" class="certificate-thumbnail" />
-                  <p class="certificate-label">获奖证书</p>
+                  <img :src="certificateImg" alt="Award Certificate" class="certificate-thumbnail" />
+                  <p class="certificate-label">Award Certificate</p>
                 </div>
                 <button @click="downloadCertificate" class="download-button">
                   <span class="download-icon">⬇</span>
-                  下载证书
+                  Download Certificate
                 </button>
               </div>
             </div>
@@ -127,12 +127,12 @@
         <div class="footer-content">
           <div class="footer-section">
             <h3>CYAC Global</h3>
-            <p>全球青少年艺术大赛官方网站</p>
+            <p>Official website of Global Youth Art Competition</p>
           </div>
           <div class="footer-section">
-            <h4>联系信息</h4>
-            <p>邮箱：info@cyac-global.com</p>
-            <p>电话：+86 400-123-4567</p>
+            <h4>Contact Information</h4>
+            <p>Email: info@cyac-global.com</p>
+            <p>Phone: +86 400-123-4567</p>
           </div>
         </div>
         <div class="footer-bottom">
@@ -165,22 +165,22 @@ export default {
       // 模拟查询结果
       if (queryType.value === 'number' && queryNumber.value) {
         queryResult.value = {
-          name: '张小明',
-          status: awardFilter.value === 'winner' ? '获奖' : '入围',
-          award: '金奖',
+          name: 'Zhang Xiaoming',
+          status: awardFilter.value === 'winner' ? 'Winner' : 'Finalist',
+          award: 'Gold Award',
           number: queryNumber.value,
           year: '2024'
         }
       } else if (queryType.value === 'name' && queryName.value) {
         queryResult.value = {
           name: queryName.value,
-          status: awardFilter.value === 'winner' ? '获奖' : '入围',
-          award: '银奖',
+          status: awardFilter.value === 'winner' ? 'Winner' : 'Finalist',
+          award: 'Silver Award',
           number: 'CYAC2024001',
           year: '2024'
         }
       } else {
-        alert('请输入查询内容')
+        alert('Please enter query content')
       }
     }
 
