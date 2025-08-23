@@ -231,7 +231,7 @@ export default {
 .nav-link {
   color: #666666;
   text-decoration: none;
-  font-weight: 400;
+  font-weight: normal;
   transition: color 0.2s ease;
 }
 
@@ -250,14 +250,14 @@ export default {
   font-size: 3rem;
   color: #333333;
   margin-bottom: 1rem;
-  font-weight: 400;
+  font-weight: normal;
   letter-spacing: 0.5px;
 }
 
 .page-description {
   font-size: 1.1rem;
   color: #666666;
-  font-weight: 300;
+  font-weight: normal;
   letter-spacing: 0.3px;
 }
 
@@ -461,14 +461,14 @@ export default {
   font-size: 1rem;
   color: #8B4513;
   margin-bottom: 0.5rem;
-  font-weight: 600;
+  font-weight: bold;
   text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
 }
 
 .work-info p {
   font-size: 0.9rem;
   color: #A0522D;
-  font-weight: 500;
+  font-weight: bold;
   text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
 }
 
@@ -545,7 +545,7 @@ export default {
   font-size: 2rem;
   color: #333;
   margin-bottom: 1rem;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .detail-info p {

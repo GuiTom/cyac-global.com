@@ -661,7 +661,7 @@ export default {
 .nav-link {
   color: #ccc;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: bold;
   transition: color 0.3s ease;
 }
 
@@ -872,7 +872,7 @@ export default {
   color: #2f424e;
   font-size: 1.1rem;
   margin-bottom: 0.8rem;
-  font-weight: 600;
+  font-weight: bold;
   border-bottom: 2px solid #e9ecef;
   padding-bottom: 0.3rem;
 }
@@ -926,7 +926,7 @@ export default {
 .faculty-title {
   color: #000000;
   font-size: 1.8rem;
-  font-weight: 400;
+  font-weight: normal;
   letter-spacing: 2px;
   margin: 0;
   text-transform: uppercase;
@@ -983,7 +983,7 @@ export default {
 .faculty-position {
    color: #666666;
    font-size: 0.9rem;
-   font-weight: 300;
+   font-weight: normal;
    line-height: 1.4;
    letter-spacing: 0.3px;
    margin: 0;
@@ -1098,7 +1098,7 @@ export default {
   font-size: 1.2rem;
   color: #333333;
   margin-bottom: 1.5rem;
-  font-weight: 400;
+  font-weight: normal;
   letter-spacing: 0.3px;
 }
 
@@ -1106,7 +1106,7 @@ export default {
   font-size: 0.95rem;
   color: #666666;
   margin-bottom: 3rem;
-  font-weight: 300;
+  font-weight: normal;
   letter-spacing: 0.2px;
   line-height: 1.6;
 }
@@ -1117,7 +1117,7 @@ export default {
   background: #333333;
   color: white;
   text-decoration: none;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 0.9rem;
   transition: all 0.2s ease;
   letter-spacing: 0.5px;
@@ -1337,7 +1337,7 @@ export default {
 .read-more {
   color: #333333;
   text-decoration: none;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 0.8rem;
   letter-spacing: 0.3px;
   text-transform: uppercase;

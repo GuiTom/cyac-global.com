@@ -22,12 +22,41 @@ html {
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Arial', Arial, sans-serif;
   line-height: 1.6;
   color: #333;
   background-color: #ffffff;
   margin: 0;
   padding: 0;
+}
+
+/* 全局字体设置 */
+* {
+  font-family: 'Arial', Arial, sans-serif;
+}
+
+/* 粗体文本使用Arial Bold */
+b, strong, .bold,
+h1, h2, h3, h4, h5, h6,
+.nav-logo h2,
+.section-title,
+.page-title,
+.article-title,
+.brand-link {
+  font-family: 'Arial', Arial, sans-serif;
+  font-weight: bold;
+}
+
+/* 常规文本使用Arial Regular */
+p, span, div, a, li, td, th,
+.nav-link,
+.page-description,
+.article-body,
+.news-card p,
+.contact-item,
+.footer-section p {
+  font-family: 'Arial', Arial, sans-serif;
+  font-weight: normal;
 }
 
 #app {

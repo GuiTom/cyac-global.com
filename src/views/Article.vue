@@ -333,7 +333,7 @@ export default {
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .article-date {
@@ -380,7 +380,7 @@ export default {
   color: #2f424e;
   margin: 2rem 0 1rem 0;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .article-body p {
@@ -457,7 +457,7 @@ export default {
   color: #333;
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .related-grid {

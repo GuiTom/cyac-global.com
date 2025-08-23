@@ -27,8 +27,9 @@
           <div class="query-tabs">
             <button 
               class="tab-button" 
-              :class="{ active: queryType === 'number' }"
+              :class="{ active: queryType === 'number', disabled: awardFilter === 'shortlisted' }"
               @click="queryType = 'number'"
+              :disabled="awardFilter === 'shortlisted'"
             >
               Query by Award Number
             </button>
@@ -45,17 +46,24 @@
             <div class="filter-buttons">
               <button 
                 class="filter-button" 
-                :class="{ active: awardFilter === 'finalist' }"
-                @click="awardFilter = 'finalist'"
+                :class="{ active: awardFilter === 'shortlisted' }"
+                @click="handleFilterChange('shortlisted')"
               >
-                Finalist
+                Shortlisted
               </button>
               <button 
                 class="filter-button" 
                 :class="{ active: awardFilter === 'winner' }"
-                @click="awardFilter = 'winner'"
+                @click="handleFilterChange('winner')"
               >
                 Winner
+              </button>
+              <button 
+                class="filter-button" 
+                :class="{ active: awardFilter === 'all' }"
+                @click="handleFilterChange('all')"
+              >
+                All
               </button>
             </div>
           </div>
@@ -76,6 +84,9 @@
             >
             <button @click="searchAward" class="search-button">Search</button>
           </div>
+          <div class="error-message" v-if="errorMessage">
+            {{ errorMessage }}
+          </div>
           <div class="query-result" v-if="queryResult">
             <h3>Query Results</h3>
             <div class="result-card">
@@ -83,7 +94,7 @@
                 <table class="result-table">
                   <tbody>
                     <tr>
-                      <td class="label">Winner:</td>
+                      <td class="label">Participant:</td>
                       <td class="value">{{ queryResult.name }}</td>
                     </tr>
                     <tr>
@@ -94,7 +105,7 @@
                       <td class="label">Award:</td>
                       <td class="value">{{ queryResult.award }}</td>
                     </tr>
-                    <tr>
+                    <tr v-if="queryResult.status === 'Winner'">
                       <td class="label">Work Name:</td>
                       <td class="value">{{ queryResult.workName }}</td>
                     </tr>
@@ -162,41 +173,70 @@ export default {
     const queryNumber = ref('')
     const queryName = ref('')
     const queryResult = ref(null)
-    const awardFilter = ref('winner') // 默认选择获奖
+    const awardFilter = ref('all') // 默认选择全部
+    const errorMessage = ref('')
 
     // 获奖作品数据库
     const awardDatabase = [
-      { certificateNumber: '2024002', nameCh: '朱浩晨', nameEn: 'HaoChen Zhu', workName: 'The Train to the Megalomania', award: 'Gold Award' },
-      { certificateNumber: '2024311', nameCh: 'Olivia Chen', nameEn: 'Olivia Chen', workName: 'The Walk Through Bubbles', award: 'Silver Award' },
-      { certificateNumber: '2024315', nameCh: 'Leah Huang', nameEn: 'Leah Huang', workName: 'Forest Cabin', award: 'Silver Award' },
-      { certificateNumber: '2024316', nameCh: 'Luke Huang', nameEn: 'Luke Huang', workName: 'Sunset in Riverside', award: 'The Most Potential Award' },
-      { certificateNumber: '2024081', nameCh: 'Priscilla Xu', nameEn: 'Priscilla Xu', workName: 'The Elf Kingdom', award: 'Silver Award' },
-      { certificateNumber: '2024091', nameCh: '陈悦凡', nameEn: 'YueFan Chen', workName: 'Happy Dance', award: 'The Best Creative Award' },
-      { certificateNumber: '2024092', nameCh: 'Kanayama Haru', nameEn: 'Kanayama Haru', workName: 'Haru the Astronaut', award: 'Silver Award' },
-      { certificateNumber: '2024098', nameCh: 'HaoYu Wang', nameEn: 'HaoYu Wang', workName: 'Duble-decker Coffee Bus Loves to Travel', award: 'Gold Award' },
-      { certificateNumber: '2024100', nameCh: '姚熙晴', nameEn: 'XiQing Yao', workName: 'Happy Party on Mars', award: 'The Most Potential Award' },
-      { certificateNumber: '2024089', nameCh: '巴星月', nameEn: 'XingYue Ba', workName: 'The War of Cats and Mice', award: 'The Best Creative Award' },
-      { certificateNumber: '2024085', nameCh: '沈景楠', nameEn: 'JingNan Shen', workName: 'Good Friend', award: 'Silver Award' },
-      { certificateNumber: '2024088', nameCh: '郑雨笛', nameEn: 'YuDi Zheng', workName: 'Act Like AI and Dress Like Crazy', award: 'Gold Award' },
-      { certificateNumber: '2024040', nameCh: '顾明月', nameEn: 'MingYue Gu', workName: 'Moonshine Gem', award: 'The Best Creative Award' },
-      { certificateNumber: '2024041', nameCh: '汪子川', nameEn: 'ZiChuan Wang', workName: 'Reverse World', award: 'Gold Award' },
-      { certificateNumber: '2024042', nameCh: '郑希言', nameEn: 'XiYan Zheng', workName: 'Jumping Down', award: 'Gold Award' },
-      { certificateNumber: '2024088', nameCh: '郑雨笛', nameEn: 'YuDi Zheng', workName: 'Dreams? Distant Shore', award: 'Gold Award' },
-      { certificateNumber: '2024318', nameCh: '高子祺', nameEn: 'Kate Gao', workName: 'Fear', award: 'Gold Award' },
-      { certificateNumber: '2024043', nameCh: '杨可儿', nameEn: 'KeEr Yang', workName: 'Sunday Afternoon', award: 'Silver Award' }
+      // 2024年获奖作品
+      { certificateNumber: '2024002', nameCh: '朱浩晨', nameEn: 'HaoChen Zhu', workName: 'The Train to the Megalomania', award: 'Gold Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024311', nameCh: 'Olivia Chen', nameEn: 'Olivia Chen', workName: 'The Walk Through Bubbles', award: 'Silver Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024315', nameCh: 'Leah Huang', nameEn: 'Leah Huang', workName: 'Forest Cabin', award: 'Silver Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024316', nameCh: 'Luke Huang', nameEn: 'Luke Huang', workName: 'Sunset in Riverside', award: 'The Most Potential Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024081', nameCh: 'Priscilla Xu', nameEn: 'Priscilla Xu', workName: 'The Elf Kingdom', award: 'Silver Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024091', nameCh: '陈悦凡', nameEn: 'YueFan Chen', workName: 'Happy Dance', award: 'The Best Creative Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024092', nameCh: 'Kanayama Haru', nameEn: 'Kanayama Haru', workName: 'Haru the Astronaut', award: 'Silver Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024098', nameCh: 'HaoYu Wang', nameEn: 'HaoYu Wang', workName: 'Duble-decker Coffee Bus Loves to Travel', award: 'Gold Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024100', nameCh: '姚熙晴', nameEn: 'XiQing Yao', workName: 'Happy Party on Mars', award: 'The Most Potential Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024089', nameCh: '巴星月', nameEn: 'XingYue Ba', workName: 'The War of Cats and Mice', award: 'The Best Creative Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024085', nameCh: '沈景楠', nameEn: 'JingNan Shen', workName: 'Good Friend', award: 'Silver Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024088', nameCh: '郑雨笛', nameEn: 'YuDi Zheng', workName: 'Act Like AI and Dress Like Crazy', award: 'Gold Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024040', nameCh: '顾明月', nameEn: 'MingYue Gu', workName: 'Moonshine Gem', award: 'The Best Creative Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024041', nameCh: '汪子川', nameEn: 'ZiChuan Wang', workName: 'Reverse World', award: 'Gold Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024042', nameCh: '郑希言', nameEn: 'XiYan Zheng', workName: 'Jumping Down', award: 'Gold Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024088', nameCh: '郑雨笛', nameEn: 'YuDi Zheng', workName: 'Dreams? Distant Shore', award: 'Gold Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024318', nameCh: '高子祺', nameEn: 'Kate Gao', workName: 'Fear', award: 'Gold Award', year: '2024', status: 'Winner' },
+      { certificateNumber: '2024043', nameCh: '杨可儿', nameEn: 'KeEr Yang', workName: 'Sunday Afternoon', award: 'Silver Award', year: '2024', status: 'Winner' },
+      
+      // 2025年入围作品
+      { certificateNumber: '2025001', nameCh: '洪楚洋', nameEn: 'Jasmine Hong', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' },
+      { certificateNumber: '2025002', nameCh: '洪紫焱', nameEn: 'Violet Hong', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' },
+      { certificateNumber: '2025003', nameCh: '李詩韻', nameEn: 'Lee Si Wan Charlotte', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' },
+      { certificateNumber: '2025004', nameCh: '张慕缘', nameEn: 'Mercy Zhong', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' },
+      { certificateNumber: '2025005', nameCh: '邱诗凌', nameEn: 'Sherlyn Qu', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' },
+      { certificateNumber: '2025006', nameCh: '戴欣芮', nameEn: 'XinRui Dai', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' },
+      { certificateNumber: '2025007', nameCh: 'Vanessa Pan', nameEn: 'Vanessa Pan', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' },
+      { certificateNumber: '2025008', nameCh: '赵恩禾', nameEn: 'EnHe Zhao', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' },
+      { certificateNumber: '2025009', nameCh: '侯苑彤', nameEn: 'WanTong Hou', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' },
+      { certificateNumber: '2025010', nameCh: '吴奕阳', nameEn: 'YiYang Wu', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' },
+      { certificateNumber: '2025011', nameCh: '张若诗', nameEn: 'RuoShi Zhang', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' },
+      { certificateNumber: '2025012', nameCh: '花蕴晞', nameEn: 'YunXi Hua', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' },
+      { certificateNumber: '2025013', nameCh: '张雷昕', nameEn: 'LeiXin Richard Zhang', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' },
+      { certificateNumber: '2025014', nameCh: 'Anne In Kat Zou', nameEn: 'Anne In Kat Zou', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' },
+      { certificateNumber: '2025015', nameCh: '王川源', nameEn: 'Chuanyuan Wang', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' },
+      { certificateNumber: '2025016', nameCh: 'CHEN JIAYI', nameEn: 'CHEN JIAYI', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' },
+      { certificateNumber: '2025017', nameCh: 'CHEN HANYI', nameEn: 'CHEN HANYI', workName: '', award: 'Shortlisted', year: '2025', status: 'Shortlisted' }
     ]
 
     // 查询功能
     const searchAward = () => {
       let result = null
       
+      // 根据筛选器过滤数据库
+      let filteredDatabase = awardDatabase
+      if (awardFilter.value === 'winner') {
+        filteredDatabase = awardDatabase.filter(item => item.status === 'Winner')
+      } else if (awardFilter.value === 'shortlisted') {
+        filteredDatabase = awardDatabase.filter(item => item.status === 'Shortlisted')
+      }
+      
       if (queryType.value === 'number' && queryNumber.value) {
         // 按证书号查询
-        result = awardDatabase.find(item => item.certificateNumber === queryNumber.value)
+        result = filteredDatabase.find(item => item.certificateNumber === queryNumber.value)
       } else if (queryType.value === 'name' && queryName.value) {
         // 按姓名查询（支持中英文姓名）
         const searchName = queryName.value.toLowerCase()
-        result = awardDatabase.find(item => 
+        result = filteredDatabase.find(item => 
           item.nameCh.toLowerCase().includes(searchName) || 
           item.nameEn.toLowerCase().includes(searchName)
         )
@@ -208,19 +248,24 @@ export default {
          
          queryResult.value = {
            name: displayName,
-           status: 'Winner',
+           status: result.status,
            award: result.award,
            number: result.certificateNumber,
-           year: '2024',
+           year: result.year,
            workName: result.workName
          }
       } else {
         if (!queryNumber.value && !queryName.value) {
-          alert('Please enter query content')
+          errorMessage.value = 'Please enter query content'
         } else {
-          alert('No matching records found')
-          queryResult.value = null
+          errorMessage.value = 'No matching records found'
         }
+        queryResult.value = null
+      }
+      
+      // 如果找到结果，清除错误信息
+      if (result) {
+        errorMessage.value = ''
       }
     }
 
@@ -234,15 +279,25 @@ export default {
       document.body.removeChild(link)
     }
 
+    // 监听筛选器变化，当选择入围作品时自动切换到姓名查询
+    const handleFilterChange = (filterType) => {
+      awardFilter.value = filterType
+      if (filterType === 'shortlisted') {
+        queryType.value = 'name'
+      }
+    }
+
     return {
       queryType,
       queryNumber,
       queryName,
       queryResult,
       awardFilter,
+      errorMessage,
       searchAward,
       downloadCertificate,
-      certificateImg
+      certificateImg,
+      handleFilterChange
     }
   }
 }
@@ -282,7 +337,7 @@ export default {
 .nav-link {
   color: #666666;
   text-decoration: none;
-  font-weight: 400;
+  font-weight: normal;
   transition: color 0.2s ease;
 }
 
@@ -308,7 +363,7 @@ export default {
 .page-description {
   font-size: 1.1rem;
   color: #666666;
-  font-weight: 300;
+  font-weight: normal;
   letter-spacing: 0.3px;
 }
 
@@ -340,7 +395,7 @@ export default {
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 0.95rem;
   letter-spacing: 0.5px;
   border-bottom: 2px solid transparent;
@@ -355,6 +410,16 @@ export default {
   color: #666666;
 }
 
+.tab-button.disabled {
+  color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.tab-button.disabled:hover {
+  color: #cccccc;
+}
+
 .query-filter {
   display: flex;
   align-items: center;
@@ -365,7 +430,7 @@ export default {
 }
 
 .filter-label {
-  font-weight: 400;
+  font-weight: normal;
   color: #666666;
   font-size: 0.9rem;
   letter-spacing: 0.3px;
@@ -383,7 +448,7 @@ export default {
   border: 1px solid #e8e8e8;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 0.85rem;
   letter-spacing: 0.3px;
 }
@@ -416,7 +481,7 @@ export default {
   transition: all 0.2s ease;
   background: #ffffff;
   color: #333333;
-  font-weight: 300;
+  font-weight: normal;
 }
 
 .input-field:focus {
@@ -427,7 +492,7 @@ export default {
 
 .input-field::placeholder {
   color: #cccccc;
-  font-weight: 300;
+  font-weight: normal;
 }
 
 .search-button {
@@ -437,7 +502,7 @@ export default {
   border: 1px solid #333333;
   border-radius: 0;
   cursor: pointer;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 0.85rem;
   transition: all 0.2s ease;
   letter-spacing: 0.5px;
@@ -448,6 +513,17 @@ export default {
 .search-button:hover {
   background: #555555;
   border-color: #555555;
+}
+
+.error-message {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+  border-radius: 4px;
+  color: #c53030;
+  font-size: 0.9rem;
+  font-weight: normal;
 }
 
 .query-result {
@@ -551,7 +627,7 @@ export default {
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.85rem;
-  font-weight: 400;
+  font-weight: normal;
   letter-spacing: 0.3px;
   transition: all 0.2s ease;
 }
@@ -588,6 +664,7 @@ export default {
 .footer-section p {
   color: #ccc;
   line-height: 1.6;
+  font-weight: normal;
 }
 
 .footer-bottom {
